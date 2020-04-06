@@ -1,0 +1,10 @@
+{
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 7848,
+  "expoServerNgrokUrl": "https://dp-tuv.anonymous.weatherapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.dp-tuv.anonymous.weatherapp.exp.direct",
+  "ngrokPid": 6024,
+  "webpackServerPort": 19006
+}
