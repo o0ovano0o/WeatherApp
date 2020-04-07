@@ -25,11 +25,14 @@ function Untitled1(props) {
           style={styles.image}
           imageStyle={styles.image_imageStyle}
         >
-          <Text style={styles.loremIpsum3}>30</Text>
+
         </ImageBackground>
+
         <View style={styles.rect6}>
+
           <View style={styles.icon9Row}>
             <EntypoIcon name="light-up" style={styles.icon9}></EntypoIcon>
+
             <View style={styles.rect8Column}>
               <View style={styles.rect8}>
                 <View style={styles.loremIpsum8Filler}></View>
@@ -40,54 +43,65 @@ function Untitled1(props) {
                 style={styles.icon8}
               ></FontAwesomeIcon>
             </View>
+
             <IoniconsIcon name="ios-sunny" style={styles.icon5}></IoniconsIcon>
           </View>
+
+
           <View style={styles.sunriseRow}>
             <Text style={styles.sunrise}>Sunrise</Text>
             <Text style={styles.wind}>Wind</Text>
             <Text style={styles.sunset}>Sunset</Text>
           </View>
+
           <View style={styles.loremIpsum7Row}>
             <Text style={styles.loremIpsum7}>06:05</Text>
             <Text style={styles.loremIpsum6}>705</Text>
-            <View style={styles.group4}>
-              <Text style={styles.loremIpsum5}>05:04</Text>
-            </View>
+            <Text style={styles.loremIpsum5}>05:04</Text>
           </View>
+
+
           <View style={styles.group2}></View>
         </View>
+
         <MaterialIconTextButtonsFooter
           style={styles.materialIconTextButtonsFooter}
         ></MaterialIconTextButtonsFooter>
+
         <View style={styles.rect2}>
           <EntypoIcon name="adjust" style={styles.icon7}></EntypoIcon>
           <View style={styles.icon6Row}>
             <FeatherIcon name="thermometer" style={styles.icon6}></FeatherIcon>
-            <Text style={styles.loremIpsum4}>37</Text>
           </View>
+          <Text style={styles.loremIpsum4}>37</Text>
         </View>
+
         <FontAwesomeIcon
           name="align-left"
           style={styles.icon}
         ></FontAwesomeIcon>
+
         <MaterialCommunityIconsIcon
           name="map-marker"
           style={styles.icon2}
         ></MaterialCommunityIconsIcon>
+
         <View style={styles.rect4}></View>
+        <EntypoIcon name="chevron-small-up" style={styles.icon3}></EntypoIcon>
         <EntypoIcon name="triangle-down" style={styles.icon10}></EntypoIcon>
         <EntypoIcon name="triangle-up" style={styles.icon11}></EntypoIcon>
         <EntypoIcon name="cloud" style={styles.icon14}></EntypoIcon>
         <EntypoIcon name="circle" style={styles.icon15}></EntypoIcon>
         <Text style={styles.c17}>C</Text>
         <Text style={styles.currentLocation}>Current location</Text>
-        <EntypoIcon name="chevron-small-up" style={styles.icon3}></EntypoIcon>
+
         <Text style={styles.today12May19}>Today, 12 May 19</Text>
         <Text style={styles.day13}>DAY</Text>
         <Text style={styles.night}>NIGHT</Text>
         <Text style={styles.loremIpsum}>40</Text>
         <Text style={styles.sunnyWithClouds}>Sunny with clouds</Text>
         <Text style={styles.loremIpsum2}>32</Text>
+        <Text style={styles.loremIpsum3}>30</Text>
       </View>
       <StatusBar hidden={false}></StatusBar>
     </View>
@@ -116,13 +130,7 @@ const styles = StyleSheet.create({
   image_imageStyle: {
     opacity: 0.94
   },
-  loremIpsum3: {
-    color: "rgba(241,233,233,1)",
-    fontSize: 15,
-    fontFamily: "montserrat-regular",
-    marginTop: 228,
-    marginLeft: 106
-  },
+
   rect6: {
     top: 409,
     left: 0,
@@ -135,10 +143,10 @@ const styles = StyleSheet.create({
   },
   icon9: {
     color: "rgba(0,0,0,1)",
-    fontSize: 30,
+    fontSize: 20,
     width: 30,
     height: 30,
-    marginTop: 35
+    marginTop: 50,
   },
   rect8: {
     width: 69,
@@ -152,20 +160,20 @@ const styles = StyleSheet.create({
   },
   loremIpsum8: {
     color: "black",
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "montserrat-regular",
     lineHeight: 20,
     marginBottom: 3,
-    marginLeft: 17,
+    marginLeft: 15,
     zIndex:-1,
   },
   icon8: {
     color: "rgba(0,0,0,1)",
-    fontSize: 30,
+    fontSize: 20,
     width: 30,
     height: 30,
-    marginTop: 7,
-    marginLeft: 11
+    marginTop: 20,
+    marginLeft: 20
   },
   rect8Column: {
     width: 69,
@@ -173,11 +181,11 @@ const styles = StyleSheet.create({
   },
   icon5: {
     color: "rgba(0,0,0,1)",
-    fontSize: 40,
+    fontSize: 30,
     width: 33,
     height: 40,
-    marginLeft: 58,
-    marginTop: 25
+    marginLeft: 70,
+    marginTop: 45
   },
   icon9Row: {
     height: 65,
@@ -187,27 +195,28 @@ const styles = StyleSheet.create({
     marginRight: 50
   },
   sunrise: {
-    width: 56,
-    height: 16,
+    width: 60,
+    height: 20,
     color: "rgba(11,10,10,1)",
-    fontSize: 15,
+    fontSize: 12,
+    marginLeft:5,
     fontFamily: "montserrat-regular"
   },
   wind: {
-    width: 41,
-    height: 16,
+    width: 60,
+    height: 20,
     color: "rgba(11,10,10,1)",
-    fontSize: 15,
-    fontFamily: "montserrat-regular",
-    marginLeft: 80
-  },
-  sunset: {
-    width: 52,
-    height: 16,
-    color: "rgba(11,10,10,1)",
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "montserrat-regular",
     marginLeft: 74
+  },
+  sunset: {
+    width: 60,
+    height: 20,
+    color: "rgba(11,10,10,1)",
+    fontSize: 12,
+    fontFamily: "montserrat-regular",
+    marginLeft: 60
   },
   sunriseRow: {
     height: 14,
@@ -218,28 +227,24 @@ const styles = StyleSheet.create({
   },
   loremIpsum7: {
     color: "rgba(11,10,10,1)",
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "montserrat-regular",
     marginTop: 1
   },
   loremIpsum6: {
     color: "rgba(11,10,10,1)",
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "montserrat-regular",
-    marginLeft: 88,
+    marginLeft: 91,
     marginTop: 1
   },
-  group4: {
-    width: 48,
-    height: 17,
-    marginLeft: 85
-  },
+
   loremIpsum5: {
     color: "rgba(11,10,10,1)",
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "montserrat-regular",
     marginTop: 1,
-    marginLeft: 6
+    marginLeft: 92
   },
   loremIpsum7Row: {
     height: 18,
@@ -276,15 +281,15 @@ const styles = StyleSheet.create({
   },
   icon7: {
     color: "rgba(0,0,0,1)",
-    fontSize: 30,
+    fontSize: 25,
     width: 35,
     height: 34,
-    marginTop: 3,
-    marginLeft: 20
+    marginTop: 4,
+    marginLeft: 22
   },
   icon6: {
     color: "rgba(0,0,0,1)",
-    fontSize: 20,
+    fontSize: 18,
     width: 20,
     height: 24
   },
@@ -292,29 +297,29 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 15,
     fontFamily: "montserrat-700",
-    marginLeft: 5,
-    marginTop: 4,
+    marginLeft: 30,
+    marginTop: -30,
 
   },
   icon6Row: {
     height: 24,
     flexDirection: "row",
-    marginTop: 1,
-    marginLeft: 4,
+    marginTop: 2,
+    marginLeft: 10,
     marginRight: 23
   },
   icon: {
     color: "rgba(248,242,242,1)",
-    fontSize: 30,
+    fontSize: 20,
     width: 31,
     height: 30,
     position: "absolute",
     top: 10,
-    left: 12
+    left: 20
   },
   icon2: {
     color: "rgba(255,255,255,1)",
-    fontSize: 30,
+    fontSize: 20,
     width: 26,
     height: 30,
     position: "absolute",
@@ -322,10 +327,10 @@ const styles = StyleSheet.create({
     left: 315
   },
   rect4: {
-    top: 402,
-    left: 285,
-    width: 40,
-    height: 38,
+    top: 390,
+    left: 280,
+    width: 35,
+    height: 35,
     backgroundColor: "rgba(74,144,226,1)",
     position: "absolute",
     borderRadius: 100
@@ -336,8 +341,8 @@ const styles = StyleSheet.create({
     width: 25,
     height: 19,
     position: "absolute",
-    top: 224,
-    left: 74
+    top: 230,
+    left: 75
   },
   icon11: {
     color: "rgba(252,244,244,1)",
@@ -345,26 +350,26 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     position: "absolute",
-    top: 192,
-    left: 73
+    top: 195,
+    left: 75
   },
   icon14: {
     color: "rgba(240,235,235,1)",
     fontSize: 44,
     position: "absolute",
-    top: 143,
+    top: 170,
     left: 167
   },
   icon15: {
     color: "rgba(240,235,235,1)",
-    fontSize: 12,
+    fontSize: 10,
     position: "absolute",
-    bottom: 471,
-    left: 287
+    bottom: 440,
+    left: 290
   },
   c17: {
-    top: 150,
-    left: 294,
+    top: 155,
+    left: 300,
     color: "rgba(241,233,233,1)",
     position: "absolute",
     fontSize: 30,
@@ -372,73 +377,81 @@ const styles = StyleSheet.create({
   },
   currentLocation: {
     top: 110,
-    left: 14,
-    width: 166,
+    left: 30,
+    width: 300,
     height: 30,
     color: "rgba(243,235,235,1)",
     position: "absolute",
-    fontSize: 20,
+    fontSize: 15,
     fontFamily: "montserrat-regular"
   },
   icon3: {
     color: "rgba(0,0,0,1)",
     fontSize: 40,
     position: "absolute",
-    top: 402,
-    left: 285
+    top: 388,
+    left: 278
   },
   today12May19: {
     top: 70,
-    left: 11,
-    width: 209,
-    height: 30,
+    left: 20,
+    width: 300,
+    height: 45,
     color: "rgba(243,241,241,1)",
     position: "absolute",
-    fontSize: 25,
+    fontSize: 20,
     fontFamily: "montserrat-700"
   },
   day13: {
     top: 195,
-    left: 23,
-    width: 35,
-    height: 17,
+    left: 20,
+    width: 50,
+    height: 20,
     color: "rgba(245,239,239,1)",
     position: "absolute",
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: "montserrat-regular"
   },
   night: {
-    top: 228,
+    top: 230,
     left: 20,
-    width: 54,
-    height: 15,
+    width: 70,
+    height: 20,
     color: "rgba(245,240,240,1)",
+    position: "absolute",
+    fontSize: 12,
+    fontFamily: "montserrat-regular"
+  },
+  loremIpsum: {
+    top: 150,
+    left: 220,
+    color: "rgba(241,233,233,1)",
+    position: "absolute",
+    fontSize: 40,
+    fontFamily: "montserrat-700"
+  },
+  sunnyWithClouds: {
+    top: 215,
+    left: 170,
+    color: "rgba(241,233,233,1)",
     position: "absolute",
     fontSize: 14,
     fontFamily: "montserrat-regular"
   },
-  loremIpsum: {
-    top: 130,
-    left: 219,
+  loremIpsum2: {
+    top: 195,
+    left: 106,
     color: "rgba(241,233,233,1)",
     position: "absolute",
-    fontSize: 50,
-    fontFamily: "montserrat-700"
-  },
-  sunnyWithClouds: {
-    top: 194,
-    left: 164,
-    color: "rgba(241,233,233,1)",
-    position: "absolute",
-    fontSize: 19,
+    fontSize: 12,
     fontFamily: "montserrat-regular"
   },
-  loremIpsum2: {
-    top: 198,
-    left: 107,
+  loremIpsum3: {
+    top: 230,
+    left: 106,
     color: "rgba(241,233,233,1)",
     position: "absolute",
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "montserrat-regular"
   },
   rect7Stack: {

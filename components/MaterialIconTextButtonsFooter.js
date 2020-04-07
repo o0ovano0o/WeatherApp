@@ -57,13 +57,13 @@ const styles = StyleSheet.create({
   icon1: {
     backgroundColor: "transparent",
     color: "rgba(11,11,11,1)",
-    fontSize: 24,
+    fontSize: 22,
     opacity: 0.8
   },
   btn1Text: {
     backgroundColor: "transparent",
     color: "rgba(20,19,19,1)",
-    paddingTop: 4,
+    paddingTop: 0,
     fontSize: 12,
     fontFamily: "montserrat-regular"
   },
@@ -79,14 +79,14 @@ const styles = StyleSheet.create({
   activeIcon: {
     backgroundColor: "transparent",
     color: "rgba(21,21,21,1)",
-    fontSize: 24,
+    fontSize: 22,
     opacity: 0.8
   },
   activeContent: {
     backgroundColor: "transparent",
     color: "rgba(12,11,11,1)",
-    paddingTop: 4,
-    fontSize: 14,
+    paddingTop: 0,
+    fontSize: 12,
     fontFamily: "montserrat-regular"
   },
   path: {
