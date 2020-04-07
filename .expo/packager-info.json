@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 25608,
+  "packagerPid": 44984,
   "expoServerNgrokUrl": "https://if-chc.anonymous.weatherapp.exp.direct",
   "packagerNgrokUrl": "https://packager.if-chc.anonymous.weatherapp.exp.direct",
-  "ngrokPid": 44884,
+  "ngrokPid": 47368,
   "devToolsPort": 19002
 }

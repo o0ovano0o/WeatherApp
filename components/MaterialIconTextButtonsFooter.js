@@ -13,6 +13,7 @@ function MaterialIconTextButtonsFooter(props) {
         ></MaterialCommunityIconsIcon>
         <Text style={styles.btn1Text}>{ "Tomorrow"}</Text>
       </TouchableOpacity>
+
       <TouchableOpacity style={styles.activeButtonWrapper}>
         <MaterialCommunityIconsIcon
           name="heart"
@@ -20,6 +21,7 @@ function MaterialIconTextButtonsFooter(props) {
         ></MaterialCommunityIconsIcon>
         <Text style={styles.activeContent}>Next 5 days</Text>
       </TouchableOpacity>
+
       <Svg viewBox="0 0 0 0" style={styles.path}>
         <Path
           strokeWidth={1}
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
     flexDirection: "row",
-    elevation: 3,
+    elevation: 2,
     shadowOffset: {
       height: -2,
       width: 0
@@ -50,9 +52,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 8,
     paddingBottom: 10,
-    minWidth: 80,
-    maxWidth: 168,
-    paddingHorizontal: 12
+    minWidth: 90,
+    maxWidth: 180,
+    paddingHorizontal: 12,
+    borderTopWidth:1,
+    borderRightWidth:1,
+    borderColor: "#DCDCDC"
   },
   icon1: {
     backgroundColor: "transparent",
@@ -72,9 +77,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 6,
     paddingBottom: 10,
-    minWidth: 80,
-    maxWidth: 168,
-    paddingHorizontal: 12
+    minWidth: 90,
+    maxWidth: 180,
+    paddingHorizontal: 12,
+    borderTopWidth:1,
+    borderColor: "#DCDCDC"
   },
   activeIcon: {
     backgroundColor: "transparent",
