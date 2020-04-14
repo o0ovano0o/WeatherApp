@@ -1,9 +1,9 @@
 {
-  "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 32172,
-  "expoServerNgrokUrl": "https://h8-bww.anonymous.weatherapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.h8-bww.anonymous.weatherapp.exp.direct",
-  "ngrokPid": 29680,
-  "devToolsPort": 19002
+  "packagerPid": 16032,
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://ta-pd8.anonymous.weatherapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.ta-pd8.anonymous.weatherapp.exp.direct",
+  "ngrokPid": 5852
 }

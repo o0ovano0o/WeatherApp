@@ -5,18 +5,29 @@
   "author": null,
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
-  "devDependencies": {
-    "babel-preset-expo": "^7.0.0"
-  },
   "dependencies": {
-    "expo": "^37.0.0",
-    "react": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
     "@builderx/utils": "latest",
-    "react-native-svg": "latest",
-    "react-native-paper": "3.6.0",
-    "react-native-vector-icons": "latest",
+    "@use-expo/font": "latest",
+    "expo": "^37.0.0",
     "expo-font": "latest",
-    "@use-expo/font": "latest"
+    "lodash": "^4.17.15",
+    "react": "16.9.0",
+    "react-dom": "~16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
+    "react-native-paper": "3.6.0",
+    "react-native-progress": "3.2.0",
+    "react-native-svg": "latest",
+    "react-native-vector-icons": "^4.0.0",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-actions": "^1.2.0",
+    "redux-logger": "^2.7.4",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0",
+    "remote-redux-devtools": "^0.5.7"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "~8.1.0",
+    "@babel/core": "^7.8.6"
   }
 }

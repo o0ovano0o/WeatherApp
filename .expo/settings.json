@@ -1,8 +1,8 @@
 {
+  "urlRandomness": "ta-pd8",
   "hostType": "tunnel",
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "h8-bww",
   "https": false
 }
