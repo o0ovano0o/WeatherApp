@@ -46,6 +46,12 @@ const styles = StyleSheet.create({
   rect8bg2: {
     backgroundColor:"rgba(255, 157, 0, 1)",
   },
+  rect8bg3: {
+    backgroundColor:"#6051BF",
+  },
+  rect8bg4: {
+    backgroundColor:"#38CAF8",
+  },
   rect4:{
     top: 390,
     left: 280,
@@ -59,6 +65,12 @@ const styles = StyleSheet.create({
   },
   rect4bg2:{
     backgroundColor:"rgb(255,255,102)"
+  },
+  rect4bg3:{
+    backgroundColor:"#A080EB"
+  },
+  rect4bg4:{
+    backgroundColor:"#61EBFA"
   },
   loremIpsum8: {
     color: "black",
@@ -212,6 +224,12 @@ const styles = StyleSheet.create({
   },
   rect2bg2:{
     backgroundColor:"rgb(255,255,102)"
+  },
+  rect2bg3:{
+    backgroundColor:"#A080EB"
+  },
+  rect2bg4:{
+    backgroundColor:"#61EBFA"
   },
   loremIpsum4: {
     color: "black",

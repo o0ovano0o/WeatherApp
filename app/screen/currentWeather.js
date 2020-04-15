@@ -42,7 +42,21 @@ const getbg = data =>{
     var date = new Date();
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
-    if (hours>6 && hours<17){
+    if (hours>5&&hours<9){
+      imgbg.bgcolor=(<ImageBackground source={require('../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+      </ImageBackground>);
+      imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bg4]}></View>);
+      imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bg4]}></View>);
+      imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bg4]}></View>);
+    }
+    else if(hours>=22 || hours<3){
+      imgbg.bgcolor=(<ImageBackground source={require('../assets/images/night-tim-PM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+      </ImageBackground>);
+      imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bg3]}></View>);
+      imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bg3]}></View>);
+      imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bg3]}></View>);
+    }
+    else if(hours>=9&&hours<17){
           imgbg.bgcolor=(<ImageBackground source={require('../assets/images/hot-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bg2]}></View>);
