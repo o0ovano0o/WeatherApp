@@ -35,21 +35,37 @@ const styles = StyleSheet.create({
   rect8: {
     width: 75,
     height: 28,
-    backgroundColor: "rgba(43,87,140,1)",
+
     borderBottomRightRadius: 12,
     borderBottomLeftRadius: 12
   },
-  loremIpsum8Filler: {
-    flex: 1,
+
+  rect8bg1: {
+    backgroundColor:"rgba(43,87,140,1)",
+  },
+  rect8bg2: {
+    backgroundColor:"rgba(255, 157, 0, 1)",
+  },
+  rect4:{
+    top: 390,
+    left: 280,
+    width: 35,
+    height: 35,
+    position: "absolute",
+    borderRadius: 100
+  },
+  rect4bg1:{
+    backgroundColor:"rgba(74,144,226,1)",
+  },
+  rect4bg2:{
+    backgroundColor:"rgb(255,255,102)"
   },
   loremIpsum8: {
     color: "black",
-    fontSize: 12,
-    fontFamily: "montserrat-regular",
-    lineHeight: 20,
-    marginBottom: 3,
-    marginLeft: 23,
-    zIndex: -1,
+    fontSize: 14,
+    fontFamily: "montserrat-700",
+    marginLeft: 21,
+    marginTop: -25,
   },
   rect8Column: {
     width: 69,
@@ -142,7 +158,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     width: 35,
     height: 34,
-    marginTop: 4,
+    marginTop: -55,
     marginLeft: 22
   },
   icon6: {
@@ -154,7 +170,7 @@ const styles = StyleSheet.create({
   icon6Row: {
     height: 24,
     flexDirection: "row",
-    marginTop: 2,
+    marginTop: 0,
     marginLeft: 10,
     marginRight: 23
   },
@@ -185,12 +201,24 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderBottomWidth: 0
   },
+  rect2bg:{
+    width: 75,
+    height: 65,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+  },
+  rect2bg1:{
+    backgroundColor:'rgba(0, 33, 255, 0.54)',
+  },
+  rect2bg2:{
+    backgroundColor:"rgb(255,255,102)"
+  },
   loremIpsum4: {
     color: "black",
     fontSize: 15,
     fontFamily: "montserrat-700",
     marginLeft: 27,
-    marginTop: -30,
+    marginTop: -25,
   },
   icon: {
     color: "rgba(248,242,242,1)",
@@ -209,15 +237,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 10,
     left: 315
-  },
-  rect4: {
-    top: 390,
-    left: 280,
-    width: 35,
-    height: 35,
-    backgroundColor: "rgba(74,144,226,1)",
-    position: "absolute",
-    borderRadius: 100,
   },
   icon10: {
     color: "rgba(252,249,249,1)",
@@ -248,12 +267,12 @@ const styles = StyleSheet.create({
     color: "rgba(240,235,235,1)",
     fontSize: 10,
     position: "absolute",
-    bottom: 451,
-    left: 266
+    bottom: 448,
+    left: 272
   },
   c17: {
     top: 150,
-    left: 278,
+    left: 285,
     color: "rgba(241,233,233,1)",
     position: "absolute",
     fontSize: 30,

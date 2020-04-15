@@ -28,6 +28,20 @@ const getTime = data => {
   var minutes = "0" + date.getMinutes();
   return hours + ':' + minutes.substr('-2');
 };
+const getbg= data=>{
+  if(data=='now'){
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = "0" + date.getMinutes();
+    if(hours>=6&& hours<=15)
+      return "require('../assets/images/hot-AM.png')";
+    else return "require('../assets/images/hot-AM.png')";
+  }
+  var date = new Date(data * 1000);
+  var hours = date.getHours();
+  var minutes = "0" + date.getMinutes();
+  return "require('../assets/images/hot-AM.png')";
+};
 let time = new Date();
 const renderContent = (weatherData) => (
   <View>
@@ -38,7 +52,7 @@ const renderContent = (weatherData) => (
   <View style={styles.rect7Stack}>
     <View style={styles.rect7}></View>
     <ImageBackground
-      source={require("../assets/images/Night-PM.png")}
+      source={{`${getbg('now')}`}
       resizeMode="stretch"
       style={styles.image}
       imageStyle={styles.image_imageStyle}

@@ -187,9 +187,9 @@ const styles = StyleSheet.create({
   },
   loremIpsum4: {
     color: "black",
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: "montserrat-700",
-    marginLeft: 27,
+    marginLeft: 25,
     marginTop: -30,
   },
   icon: {
@@ -249,11 +249,11 @@ const styles = StyleSheet.create({
     fontSize: 10,
     position: "absolute",
     bottom: 451,
-    left: 266
+    left: 270
   },
   c17: {
     top: 150,
-    left: 278,
+    left: 280,
     color: "rgba(241,233,233,1)",
     position: "absolute",
     fontSize: 30,

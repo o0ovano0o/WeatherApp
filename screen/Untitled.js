@@ -14,13 +14,25 @@ import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtons
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
-function Untitled1(props) {
+export default class Untitled1 extends React.Component{
+  constructor (props) {
+     super(props)
+     this.state = {
+       imagemain: {img: require('../assets/images/Night-PM.png')},
+       timeh:20,
+       times: 30,
+
+     }
+  }
+
+render () {
+  const { imagemain } = this.state
   return (
     <View style={styles.container}>
       <View style={styles.rect7Stack}>
         <View style={styles.rect7}></View>
         <ImageBackground
-          source={require("../assets/images/Night-PM.png")}
+          source={this.state.imagemain.img}
           resizeMode="stretch"
           style={styles.image}
           imageStyle={styles.image_imageStyle}
@@ -97,7 +109,7 @@ function Untitled1(props) {
       <StatusBar hidden={false}></StatusBar>
     </View>
   );
-}
+}}
 
 const styles = StyleSheet.create({
   container: {
@@ -347,12 +359,12 @@ const styles = StyleSheet.create({
     color: "rgba(240,235,235,1)",
     fontSize: 10,
     position: "absolute",
-    bottom: 455,
-    left: 290
+    bottom: 400,
+    left: 300
   },
   c17: {
     top: 140,
-    left: 300,
+    left: 320,
     color: "rgba(241,233,233,1)",
     position: "absolute",
     fontSize: 30,
@@ -442,5 +454,3 @@ const styles = StyleSheet.create({
     height: 620
   }
 });
-
-export default Untitled1;
