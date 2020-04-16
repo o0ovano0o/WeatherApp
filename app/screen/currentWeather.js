@@ -15,6 +15,8 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import _ from 'lodash';
 import styles from '../assets/style';
+import Splash from './Splash';
+
 
 const getTime = data => {
   if(data=='now'){
@@ -77,9 +79,9 @@ const getbg = data =>{
 
 let time = new Date();
 const renderContent = (weatherData) => (
-  <View>
+  <View style={styles.container}>
      { _.isEmpty(weatherData) ?
-          <Text>{'Search for a location'}</Text>
+         <View style={{backgroundColor: '#385999',flex:1}}></View>
           :
       <View>
           <View style={styles.rect7Stack}>
@@ -166,9 +168,9 @@ const CurrentWeather = (props) => {
   renderContent(weatherData):
   renderError(errorMessage);
   return (
-    <View>
+    <View style={styles.container}>
       { isLoading ?
-        <Text>Loadinggg</Text> :
+      <Splash></Splash>:
         stuff}
     </View>
   );

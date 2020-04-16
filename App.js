@@ -2,7 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
-import Main from './app/screen/main';
+import { AppRegistry, View } from 'react-native';
+import Router from './app/screen/Router.js'
+
+
+// import Main from './app/screen/main';
+// import Next5 from './app/screen/next5days';
 
 function useFonts(fontMap) {
   let [fontsLoaded, setFontsLoaded] = useState(false);
@@ -12,6 +17,8 @@ function useFonts(fontMap) {
   })();
   return [fontsLoaded];
 }
+
+
 
 export default props => {
   let [fontsLoaded] = useFonts({
@@ -24,7 +31,7 @@ export default props => {
     return <AppLoading />;
   } else {
     return (
-     <Main/>
+     <Router />
     );
   }
 };

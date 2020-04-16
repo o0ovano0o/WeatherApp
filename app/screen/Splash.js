@@ -12,11 +12,11 @@ export default class Splash extends React.Component {
     Animated.sequence([
         Animated.timing(this.state.logoOpacity,{
             toValue:1,
-            duration: 2000,
+            duration: 1000,
         }),
         Animated.timing(this.state.titlemargintop,{
             toValue:10,
-            duration: 1000,
+            duration: 400,
         }),
     ]).start(()=>{
 
@@ -26,7 +26,7 @@ export default class Splash extends React.Component {
 
     return (
       <View style={styles.container}>
-          <Animated.Image style={{...styles.logo, opacity: this.state.logoOpacity}} source={{uri: 'https://images-eu.ssl-images-amazon.com/images/I/61nuuPxUvaL.png'}} />
+          <Animated.Image style={{...styles.logo, opacity: this.state.logoOpacity}} source={require('../assets/images/icon.png')} />
           <Animated.Text style={{...styles.title, marginTop: this.state.titlemargintop }}>Weather</Animated.Text>
       </View>
     );

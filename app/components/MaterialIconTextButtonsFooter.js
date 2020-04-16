@@ -2,11 +2,17 @@ import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Svg, { Path } from "react-native-svg";
-
+import { Actions } from 'react-native-router-flux';
+const gotoNext5 = () => {
+  Actions.next5()
+}
+const gotoTomorrow=()=>{
+  Actions.tomorrow()
+}
 function MaterialIconTextButtonsFooter(props) {
   return (
     <View style={[styles.container, props.style]}>
-      <TouchableOpacity style={styles.buttonWrapper1}>
+      <TouchableOpacity style={styles.buttonWrapper1} onPress={gotoTomorrow}>
         <MaterialCommunityIconsIcon
           name="timer"
           style={styles.icon1}
@@ -14,7 +20,7 @@ function MaterialIconTextButtonsFooter(props) {
         <Text style={styles.btn1Text}>{ "Tomorrow"}</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.activeButtonWrapper}>
+      <TouchableOpacity style={styles.activeButtonWrapper} onPress={gotoNext5} >
         <MaterialCommunityIconsIcon
           name="heart"
           style={styles.activeIcon}
