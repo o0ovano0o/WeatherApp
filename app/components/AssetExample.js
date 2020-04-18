@@ -1,32 +1,39 @@
-import * as React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
+import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import Svg, { Path } from "react-native-svg";
+import { Actions } from 'react-native-router-flux';
+import EntypoIcon from "react-native-vector-icons/Entypo";
 
-export default function AssetExample() {
+const gotoDia = () => {
+  Actions.dia()
+}
+
+function AssetExample(props) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.paragraph}>
-        Local files and assets can be imported by dragging and dropping them into the editor
-      </Text>
-      <Image style={styles.logo} source={require('../assets/snack-icon.png')} />
-    </View>
+
+    <TouchableOpacity style={styles.container} onPress={gotoDia} >
+      <EntypoIcon name="chevron-small-up" style={styles.icon3}></EntypoIcon>
+    </TouchableOpacity>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 24,
+    height:40,
+    width:40,
+    top:380,
+    left:278,
+    borderRadius: 40,
   },
-  paragraph: {
-    margin: 24,
-    marginTop: 0,
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
+  icon3: {
+    color: "rgba(0,0,0,1)",
+    fontSize: 40,
+    position: "absolute",
+    top: -1,
+    left: 0
   },
-  logo: {
-    height: 128,
-    width: 128,
-  }
 });
+
+export default AssetExample;

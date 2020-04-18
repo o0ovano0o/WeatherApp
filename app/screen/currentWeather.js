@@ -5,7 +5,9 @@ import {
   Image,
   ImageBackground,
   Text,
-  StatusBar
+  StatusBar,
+  SafeAreaView,
+  TouchableOpacity
 } from "react-native";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
@@ -16,6 +18,7 @@ import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommun
 import _ from 'lodash';
 import styles from '../assets/style';
 import Splash from './Splash';
+import AssetExample from "../components/AssetExample";
 
 
 const getTime = data => {
@@ -76,10 +79,10 @@ const getbg = data =>{
   }
   return imgbg;
 };
-
 let time = new Date();
 const renderContent = (weatherData) => (
   <View style={styles.container}>
+
      { _.isEmpty(weatherData) ?
          <View style={{backgroundColor: '#385999',flex:1}}></View>
           :
@@ -125,19 +128,17 @@ const renderContent = (weatherData) => (
                     </View>
                     <Text style={styles.loremIpsum4}>{`${weatherData.main.feels_like}`}</Text>
                 </View>
-
                 <FontAwesomeIcon
-                  name="align-left"
-                  style={styles.icon}
+                      name="align-left"
+                      style={styles.icon}
                 ></FontAwesomeIcon>
-
                 <MaterialCommunityIconsIcon
                   name="map-marker"
                   style={styles.icon2}
                 ></MaterialCommunityIconsIcon>
 
                 {getbg('now').rect4cl}
-                <EntypoIcon name="chevron-small-up" style={styles.icon3}></EntypoIcon>
+                <AssetExample></AssetExample>
                 <EntypoIcon name="triangle-down" style={styles.icon10}></EntypoIcon>
                 <EntypoIcon name="triangle-up" style={styles.icon11}></EntypoIcon>
                 <EntypoIcon name="cloud" style={styles.icon14}></EntypoIcon>
@@ -154,6 +155,7 @@ const renderContent = (weatherData) => (
           </View>
           <StatusBar hidden={false}></StatusBar>
       </View>}
+
 </View>
 );
 const renderError = errorMessage =>
