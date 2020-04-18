@@ -1,5 +1,13 @@
-import { search } from './search';
+import { createStore, combineReducers } from 'redux';
+import searchReducer  from './search';
+import  daysData  from './daysData';
 
-export default {
-    search,
-};
+const rootReducer = combineReducers({
+    searchReducer
+});
+
+const configureStore = () => {
+  return createStore(rootReducer);
+}
+
+export default configureStore;
