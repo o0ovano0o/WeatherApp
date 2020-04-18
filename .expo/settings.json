@@ -1,6 +1,6 @@
 {
-  "urlRandomness": "gh-d5k",
-  "hostType": "lan",
+  "urlRandomness": "dx-abu",
+  "hostType": "tunnel",
   "lanType": "ip",
   "dev": true,
   "minify": false,

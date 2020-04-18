@@ -7,9 +7,17 @@ import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
 
-import MainScreen from './MainScreen';
 import searchReducer from '../reducers/search';
-import Next5 from './next5days';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Tomorrow from './Tomorrow.js';
+import Next5 from './next5days.js';
+import Dia from './Dia.js';
+const Drawer = createDrawerNavigator();
+import MainScreen from './MainScreen';
+
+
+
 
 const logger = createLogger();
 const store = createStore(searchReducer, composeWithDevTools(
@@ -35,4 +43,22 @@ class Main1 extends Component {
 }
 
 
-export  { Main1, Main2 };
+class App extends Component  {
+    render(){
+      return (
+          <NavigationContainer>
+            <Drawer.Navigator initialRouteName="Home">
+              <Drawer.Screen name="Home" component={Main1} />
+              <Drawer.Screen name="next5days" component={Main2} />
+              <Drawer.Screen name="Tomorrow" component={Tomorrow} />
+              <Drawer.Screen name="More" component={Dia} />
+            </Drawer.Navigator>
+          </NavigationContainer>
+      );
+    }
+  }
+
+    export {App,Main2}
+
+
+

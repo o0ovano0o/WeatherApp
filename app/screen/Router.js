@@ -1,16 +1,16 @@
 import React from 'react'
 import { Router, Scene } from 'react-native-router-flux'
 import { StyleSheet } from 'react-native'
-import {Main1, Main2} from './main.js'
-import Next5 from './main1.js'
+import {App, Main2} from './main.js'
 import Tomorrow from './Tomorrow.js'
-
+import Dia from './Dia.js'
 const Routes = () => (
    <Router >
       <Scene key = "root">
-         <Scene key = "home" component = {Main1} hideNavBar={true}  initial = {true} />
+         <Scene key = "home" component = {App} hideNavBar={true}  initial = {true} />
          <Scene key = "next5" component = {Main2}  hideNavBar={true}    />
          <Scene key = "tomorrow" component = {Tomorrow}  hideNavBar={true}    />
+         <Scene key = "dia" component = {Dia}  hideNavBar={true}    />
       </Scene>
    </Router>
 )

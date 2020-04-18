@@ -7,7 +7,12 @@
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "@builderx/utils": "latest",
+
     "@react-navigation/material-top-tabs": "^5.1.9",
+
+    "@react-navigation/drawer": "^5.5.0",
+    "@react-navigation/native": "^5.1.6",
+
     "@use-expo/font": "latest",
     "expo": "^37.0.0",
     "expo-font": "latest",
@@ -21,6 +26,7 @@
     "react-native-progress": "3.2.0",
     "react-native-reanimated": "^1.8.0",
     "react-native-router-flux": "^4.2.0",
+    "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.4.0",
     "react-native-spinkit": "^1.5.0",
     "react-native-svg": "^12.1.0",
