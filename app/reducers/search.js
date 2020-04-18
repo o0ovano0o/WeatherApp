@@ -4,6 +4,7 @@ import {
     SET_ERROR_MESSAGE,
     SET_IS_LOADING,
     SET_IS_FAHRENHEIT,
+    UPDATE_NEXT_5DAYS
 } from '../actions';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
     errorMessage: '',
     isLoading: false,
     isFahrenheit: false,
+    weatherDatas: {},
 };
 
 const searchReducer = (state = initialState, action = {}) => {
@@ -41,6 +43,11 @@ const searchReducer = (state = initialState, action = {}) => {
                 isFahrenheit: action.isFahrenheit,
             });
         }
+        case UPDATE_NEXT_5DAYS: {
+            return Object.assign({}, state, {
+             weatherDatas:action.weatherDatas,
+            });
+          }
         default:
             return state;
     }

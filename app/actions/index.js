@@ -7,6 +7,7 @@ export const UPDATE_WEATHER_DATA = 'UPDATE_WEATHER_DATA';
 export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 export const SET_IS_LOADING = 'SET_IS_LOADING';
 export const SET_IS_FAHRENHEIT = 'SET_IS_FAHRENHEIT';
+export const UPDATE_NEXT_5DAYS = 'UPDATE_NEXT_5DAYS';
 
 /**
  * updateSearchTerm - set new search term
@@ -17,6 +18,18 @@ export function updateSearchTerm(searchTerm) {
     return {
         type: UPDATE_SEARCH_TERM,
         searchTerm,
+    };
+}
+
+/**
+ *UPDATE_NEXT_5DAYS - set weather data
+ * @param  {string} daysData - what the user entered
+ * @return {object} Action
+ */
+export function update_5_days(weatherDatas) {
+    return {
+        type: UPDATE_NEXT_5DAYS,
+        weatherDatas,
     };
 }
 
@@ -72,7 +85,7 @@ export function searchByCity(searchTerm) {
     return (dispatch) => {
         const { appid, url } = config;
         dispatch(setIsLoading(true));
-        return fetch(`${url}?q=${searchTerm}&appid=${appid}`)
+        return fetch(`${url}weather?q=${searchTerm}&appid=${appid}`)
             .then(response => response.json())
             .then((data) => {
                 dispatch(setErrorMessage(''));
@@ -90,7 +103,7 @@ export function searchByCoordinates(latitude, longitude) {
     return (dispatch) => {
         const { appid, url } = config;
         dispatch(setIsLoading(true));
-        return fetch(`${url}?lat=${latitude}&lon=${longitude}&lang=vi&units=metric&appid=${appid}`)
+        return fetch(`${url}weather?lat=${latitude}&lon=${longitude}&lang=vi&units=metric&appid=${appid}`)
             .then(response => response.json())
             .then((data) => {
                 dispatch(setErrorMessage(''));
@@ -99,6 +112,24 @@ export function searchByCoordinates(latitude, longitude) {
             })
             .catch(() => {
                 dispatch(updateWeatherData({}));
+                dispatch(setErrorMessage('Could not fetch weather for your location'));
+            });
+    };
+}
+export function search5daysByCoordinates(latitude, longitude) {
+    return (dispatch) => {
+        const { appid, url } = config;
+        dispatch(setIsLoading(true));
+        return fetch(`${url}onecall?lat=${latitude}&lon=${longitude}&lang=vi&units=metric&appid=${appid}`)
+            .then(response => response.json())
+            .then((data) => {
+                dispatch(setErrorMessage(''));
+                dispatch(setIsLoading(false));
+                console.log(data);
+                dispatch(update_5_days(data));
+            })
+            .catch(() => {
+                dispatch(update_5_days(data));
                 dispatch(setErrorMessage('Could not fetch weather for your location'));
             });
     };

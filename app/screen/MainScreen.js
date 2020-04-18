@@ -8,11 +8,12 @@ import styles from '../assets/style';
 
 export class MainScreen extends Component {
   getLocation(){
-    navigator.geolocation.getCurrentPosition( // eslint-disable-line
+   navigator.geolocation.getCurrentPosition( // eslint-disable-line
           (position) => {
               const lat = position.coords.latitude.toString();
               const lon = position.coords.longitude.toString();
-              this.props.actions.searchByCoordinates(lat, lon);
+            this.props.actions.searchByCoordinates(lat, lon);
+             this.props.actions.search5daysByCoordinates(lat,lon);
           },
           () => {
               const errorMessage = 'Could not fetch weather for your location';
@@ -20,8 +21,8 @@ export class MainScreen extends Component {
           },
           { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 });
   }
- async componentDidMount() {
-      await this.getLocation();
+ componentDidMount() {
+       this.getLocation();
   }
   render(){
     const { state } = this.props;

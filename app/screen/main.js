@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -7,17 +7,32 @@ import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
 
-import WeatherApp from './MainScreen';
+import MainScreen from './MainScreen';
 import searchReducer from '../reducers/search';
+import Next5 from './next5days';
 
 const logger = createLogger();
 const store = createStore(searchReducer, composeWithDevTools(
-    applyMiddleware(thunk, promise, logger),
+  applyMiddleware(thunk, promise, logger),
 ));
 
-const Main = () =>
-    (<Provider store={store}>
-      <WeatherApp />
-    </Provider>);
+class Main2 extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Next5 />
+      </Provider>
+    );
+  }
+}
+class Main1 extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <MainScreen />
+      </Provider>);
+  }
+}
 
-export default Main;
+
+export  { Main1, Main2 };
