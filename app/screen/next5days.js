@@ -1,17 +1,9 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet,TouchableOpacity,ScrollView,Dimensions } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { composeWithDevTools } from 'remote-redux-devtools';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise';
-import createLogger from 'redux-logger';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as weatherActions from '../actions';
-
-import store from '../reducers/daysData'
 import {
   LineChart,
   BarChart,
@@ -41,7 +33,22 @@ const getTime = data => {
 
 
 class MainScreen extends Component {
-
+  getLocation(){
+    navigator.geolocation.getCurrentPosition( // eslint-disable-line
+           (position) => {
+               const lat = position.coords.latitude.toString();
+               const lon = position.coords.longitude.toString();
+              this.props.actions.search5daysByCoordinates(lat,lon);
+           },
+           () => {
+               const errorMessage = 'Could not fetch weather for your location';
+               this.props.actions.setErrorMessage(errorMessage);
+           },
+           { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 });
+   }
+  componentDidMount() {
+        this.getLocation();
+   }
   render(){
     const { state } = this.props;
     const {timezone,daily} = state.weatherDatas;
@@ -51,11 +58,12 @@ class MainScreen extends Component {
     }
     const temp= daily.map(item =>  item.temp.day);
     const time= daily.map(item => getTime(item.dt));
+    const uvi= daily.map(item => item.uvi);
+    const humidity= daily.map(item => item.humidity);
     return (
-         <View style={styles.container}>
+         <ScrollView style={styles.container}>
       <TouchableOpacity style = {{ top:0,left:0 }} onPress ={goToHome}>
          <Text>Return</Text>
-
       </TouchableOpacity>
 
       <LineChart
@@ -80,7 +88,54 @@ class MainScreen extends Component {
       margin:5
     }}
   />
-    </View>
+  <LineChart
+    data={{
+      labels: time,
+      datasets: [
+        {
+          data: uvi
+        }
+      ]
+    }}
+    width={Dimensions.get("window").width} // from react-native
+    height={220}
+    yAxisLabel=""
+    yAxisSuffix="UV"
+    yAxisInterval={50} // optional, defaults to 1
+    chartConfig={chartConfig}
+    bezier
+    style={{
+      marginVertical: 8,
+      borderRadius: 16,
+      margin:5
+    }}
+  />
+  <LineChart
+    data={{
+      labels: time,
+      datasets: [
+        {
+          data: humidity
+        }
+      ]
+    }}
+    width={Dimensions.get("window").width} // from react-native
+    height={220}
+    yAxisLabel=""
+    yAxisSuffix="%"
+    yAxisInterval={50} // optional, defaults to 1
+    chartConfig={chartConfig}
+    bezier
+    style={{
+      marginVertical: 8,
+      borderRadius: 16,
+      margin:5
+    }}
+  />
+    <TouchableOpacity style = {{ top:0,left:0 }} onPress ={goToHome}>
+         <Text>Return</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
   }
 

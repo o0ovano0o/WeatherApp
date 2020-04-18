@@ -1,9 +1,9 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 3556,
+  "packagerPort": null,
+  "packagerPid": null,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "expoServerNgrokUrl": "https://gh-d5k.anonymous.weatherapp.exp.direct",
   "packagerNgrokUrl": "https://packager.gh-d5k.anonymous.weatherapp.exp.direct",
-  "ngrokPid": 10072
+  "ngrokPid": 6040
 }
