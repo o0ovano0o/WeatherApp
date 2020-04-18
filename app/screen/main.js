@@ -43,7 +43,8 @@ class Main1 extends Component {
 }
 
 
-    export default function App(props)  {
+class App extends Component  {
+    render(){
       return (
           <NavigationContainer>
             <Drawer.Navigator initialRouteName="Home">
@@ -55,8 +56,9 @@ class Main1 extends Component {
           </NavigationContainer>
       );
     }
+  }
 
-
+    export {App,Main2}
 
 
 
