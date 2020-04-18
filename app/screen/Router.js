@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
      backgroundColor: "#385999", // changing navbar color
      paddingTop:0,
      marginTop:0,
-     height:25,
+
    },
    navTitle: {
      color: 'white', // changing navbar title color
