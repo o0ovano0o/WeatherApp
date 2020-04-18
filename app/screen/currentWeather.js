@@ -28,6 +28,10 @@ const getTime = data => {
     var minutes = "0" + date.getMinutes();
     return hours + ':' + minutes.substr('-2');
   }
+  if(data=='day'){
+    var date = new Date();
+    return date.getDate()+' - '+ date.getMonth()+' - '+date.getFullYear();
+  }
   var date = new Date(data * 1000);
   var hours = date.getHours();
   var minutes = "0" + date.getMinutes();
@@ -80,10 +84,10 @@ const getbg = data =>{
   return imgbg;
 };
 let time = new Date();
-const renderContent = (weatherData) => (
+const renderContent = (weatherData,weatherDatas) => (
   <View style={styles.container}>
 
-     { _.isEmpty(weatherData) ?
+     { (_.isEmpty(weatherData)||_.isEmpty(weatherDatas)) ?
          <View style={{backgroundColor: '#385999',flex:1}}></View>
           :
       <View>
@@ -126,7 +130,7 @@ const renderContent = (weatherData) => (
                     <View style={styles.icon6Row}>
                         <FeatherIcon name="thermometer" style={styles.icon6}></FeatherIcon>
                     </View>
-                    <Text style={styles.loremIpsum4}>{`${weatherData.main.feels_like}`}</Text>
+                    <Text style={styles.loremIpsum4}>{`${weatherDatas.daily[0].feels_like.day}`}</Text>
                 </View>
                 <FontAwesomeIcon
                       name="align-left"
@@ -150,8 +154,8 @@ const renderContent = (weatherData) => (
                 <Text style={styles.night}>MIN</Text>
                 <Text style={styles.loremIpsum}>{`${weatherData.main.temp}`}</Text>
                 <Text style={styles.sunnyWithClouds}>{`${weatherData.weather[0].description}`}</Text>
-                <Text style={styles.loremIpsum2}>{`${weatherData.main.temp_max}`}</Text>
-                <Text style={styles.loremIpsum3}>{`${weatherData.main.temp_min}`}</Text>
+                <Text style={styles.loremIpsum2}>{`${weatherDatas.daily[0].temp.max}`}</Text>
+                <Text style={styles.loremIpsum3}>{`${weatherDatas.daily[0].temp.min}`}</Text>
           </View>
           <StatusBar hidden={false}></StatusBar>
       </View>}
@@ -165,9 +169,9 @@ const renderError = errorMessage =>
       </View>
     );
 const CurrentWeather = (props) => {
-  const { weatherData, isLoading, errorMessage } = props;
+  const { weatherData, isLoading, errorMessage,weatherDatas } = props;
   const stuff = _.isEmpty(errorMessage) ?
-  renderContent(weatherData):
+  renderContent(weatherData,weatherDatas):
   renderError(errorMessage);
   return (
     <View style={styles.container}>

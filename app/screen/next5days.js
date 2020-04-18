@@ -6,17 +6,10 @@ import { connect } from 'react-redux';
 import * as weatherActions from '../actions';
 import {
   LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
 } from "react-native-chart-kit";
 
 
-  const goToHome = () => {
-  Actions.home()
-}
+
 const getTime = data => {
   if(data=='now'){
     var date = new Date();
@@ -30,29 +23,19 @@ const getTime = data => {
   return day + '-' + month;
 };
 
+const goToHome = () => {
+      Actions.home()
+    }
+
+class next5days extends Component {
 
 
-class MainScreen extends Component {
-  getLocation(){
-    navigator.geolocation.getCurrentPosition( // eslint-disable-line
-           (position) => {
-               const lat = position.coords.latitude.toString();
-               const lon = position.coords.longitude.toString();
-              this.props.actions.search5daysByCoordinates(lat,lon);
-           },
-           () => {
-               const errorMessage = 'Could not fetch weather for your location';
-               this.props.actions.setErrorMessage(errorMessage);
-           },
-           { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 });
-   }
-  componentDidMount() {
-        this.getLocation();
-   }
   render(){
     const { state } = this.props;
+    const { weatherDatas,weatherData } = this.props.state;
+
     const {timezone,daily} = state.weatherDatas;
-    const screenWidth = Dimensions.get('window').width
+    const screenWidth = Dimensions.get('window').width;
     const render=(list)=>{
       return list.map((element,index) => <Text key={`${index}`}>{` ${getTime(element.dt)} `}  {element.temp.day}  {`${element.temp.min} `}</Text>);
     }
@@ -62,9 +45,6 @@ class MainScreen extends Component {
     const humidity= daily.map(item => item.humidity);
     return (
          <ScrollView style={styles.container}>
-      <TouchableOpacity style = {{ top:0,left:0 }} onPress ={goToHome}>
-         <Text>Return</Text>
-      </TouchableOpacity>
 
       <LineChart
     data={{
@@ -132,9 +112,7 @@ class MainScreen extends Component {
       margin:5
     }}
   />
-    <TouchableOpacity style = {{ top:0,left:0 }} onPress ={goToHome}>
-         <Text>Return</Text>
-      </TouchableOpacity>
+
     </ScrollView>
   );
   }
@@ -162,7 +140,7 @@ export default connect(state => ({
 dispatch => ({
   actions: bindActionCreators(weatherActions, dispatch),
 }),
-)(MainScreen);
+)(next5days);
 
 const styles = StyleSheet.create({
   container: {

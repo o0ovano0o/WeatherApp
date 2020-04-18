@@ -124,12 +124,12 @@ export function search5daysByCoordinates(latitude, longitude) {
             .then(response => response.json())
             .then((data) => {
                 dispatch(setErrorMessage(''));
-                dispatch(setIsLoading(false));
-                console.log(data);
-                dispatch(update_5_days(data));
+               dispatch(setIsLoading(false));
+               dispatch(update_5_days(data));
+
             })
             .catch(() => {
-                dispatch(update_5_days(data));
+                dispatch(update_5_days({}));
                 dispatch(setErrorMessage('Could not fetch weather for your location'));
             });
     };

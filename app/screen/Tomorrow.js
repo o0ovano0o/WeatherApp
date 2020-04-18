@@ -8,9 +8,7 @@ export default function App() {
 }
   return (
     <View style={styles.container}>
-      <TouchableOpacity style = {{ top:0,left:0 }} onPress ={goToHome}>
-         <Text>Return</Text>
-      </TouchableOpacity>
+
       <Text style={styles.paragraph}>
        Tomorrow
       </Text>

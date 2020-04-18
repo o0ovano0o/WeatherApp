@@ -33,6 +33,7 @@ class Main2 extends Component {
     );
   }
 }
+
 class Main1 extends Component {
   render() {
     return (
@@ -59,6 +60,3 @@ class App extends Component  {
   }
 
     export {App,Main2}
-
-
-

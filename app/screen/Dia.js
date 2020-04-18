@@ -47,9 +47,7 @@ const getbg = data =>{
 let time = new Date();
 
 export default function App(props)  {
-  const goToHome = () => {
-  Actions.home()
-}
+
   return (
     <View>
 
@@ -57,9 +55,6 @@ export default function App(props)  {
 
       <View style={styles.container}>
           <View style={styles.buttonWrapper1}>
-              <TouchableOpacity style={styles.buttonWrapper2} onPress={goToHome}>
-                <EntypoIcon name="chevron-small-up" style={styles.icon3}></EntypoIcon>
-              </TouchableOpacity>
           </View>
           <View style={{ height:570, width:360, padding:20, paddingTop:-10}}>
             <ScrollView>
