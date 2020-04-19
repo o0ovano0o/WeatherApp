@@ -54,9 +54,8 @@ export default function App(props)  {
       {getbg('now').bgcolor}
 
       <View style={styles.container}>
-          <View style={styles.buttonWrapper1}>
-          </View>
-          <View style={{ height:570, width:360, padding:20, paddingTop:-10}}>
+          <View style={styles.buttonWrapper1}></View>
+          <View style={{ height:400, width:360, padding:20, paddingTop:-10}}>
             <ScrollView>
               <Text>Ý tưởng là để tạo header có thể đè lên scrollview đó là sử dụng position: ‘absolute và thiết lập margin top của scrollview một khoảng đúng bằng chiều cao của phần header. Sau đó, chúng ta sẽ tạo animation cho chiều cao header dùng ScrollView scroll position.</Text>
               <Text>Ý tưởng là để tạo header có thể đè lên scrollview đó là sử dụng position: ‘absolute và thiết lập margin top của scrollview một khoảng đúng bằng chiều cao của phần header. Sau đó, chúng ta sẽ tạo animation cho chiều cao header dùng ScrollView scroll position.</Text>
@@ -69,7 +68,7 @@ export default function App(props)  {
           </View>
       </View>
       <MaterialIconTextButtonsFooter
-        style={sty.materialIconTextButtonsFooter}
+        style={styles.materialIconTextButtonsFooter}
       ></MaterialIconTextButtonsFooter>
 
     </View>
@@ -122,6 +121,12 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     position: "absolute",
-
+  },
+  materialIconTextButtonsFooter: {
+    top: 500,
+    left: 0,
+    width: 360,
+    height: 60,
+    position: "absolute"
   },
 });
