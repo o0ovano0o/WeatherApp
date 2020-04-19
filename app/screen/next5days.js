@@ -132,7 +132,7 @@ class next5days extends Component {
         </Tabs>
 
 
-        <View style={{ flex: 1, margin: 3}}>
+        <View style={{ flex: 1}}>
           <DeckSwiper
             ref={(c) => this._deckSwiper = c}
             dataSource={daily}
@@ -143,7 +143,7 @@ class next5days extends Component {
             }
             renderItem={(item, index) =>
               <View  style={styles.rect}>
-                      <Body >
+                      <Body>
                       <View style={styles.group}>
                         <View >
                           <View style={styles.iconRow}>
@@ -288,7 +288,11 @@ const styles = StyleSheet.create({
     borderColor: "rgba(81,191,192,1)",
     borderWidth: 2,
     elevation: 4,
-    marginBottom:5
+    marginBottom:10,
+    marginTop:0,
+    marginHorizontal:5,
+    paddingVertical:10
+
 
   },
   path: {
@@ -320,7 +324,7 @@ const styles = StyleSheet.create({
   iconRow: {
     height: 40,
     flexDirection: "row",
-    marginTop: 7,
+    marginTop: 15,
     marginLeft: 42,
     marginRight: 32
   },

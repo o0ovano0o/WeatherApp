@@ -4,14 +4,14 @@ import { StyleSheet } from 'react-native'
 import {App, Main2} from './main.js'
 import Tomorrow from './Tomorrow.js'
 import Dia from './Dia.js'
-import { StatusBar } from 'react-native';
 const Routes = () => (
-   <Router  navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene} barButtonTextStyle={styles.barButtonTextStyle} barButtonIconStyle={styles.barButtonIconStyle}>
+   <Router  navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene} backButtonTextStyle = {{color:'#000000'}}
+   barButtonIconStyle={{ tintColor: '#000000' }} backButtonTintColor = '#ffffff' >
       <Scene key = "root">
          <Scene key = "home" component = {App}   hideNavBar={true}  initial = {true} />
-         <Scene key = "next5" component = {Main2} title="Next 7 days" leftButtonIconStyle={styles.navIcon} narBarButtonColor="white" />
-         <Scene key = "tomorrow" component = {Tomorrow} title="Tomorrow" narBarButtonColor="white"  />
-         <Scene key = "dia" component = {Dia}  title="Detail"    narBarButtonColor="white"  />
+         <Scene key = "next5" component = {Main2} title="7 ngày tới" />
+         <Scene key = "tomorrow" component = {Tomorrow} title="Ngày mai" narBarButtonColor="white"/>
+         <Scene key = "dia" component = {Dia}  title="Chi tiết"  narBarButtonColor="white"/>
       </Scene>
    </Router>
 )
@@ -25,18 +25,13 @@ const styles = StyleSheet.create({
    navTitle: {
      color: 'white', // changing navbar title color
      justifyContent: "center",
+     fontFamily:"montserrat-regular",
+     textAlign:"center",
+     alignItems:"center",
+     marginLeft:30
    },
    routerScene: {
-     paddingTop: 0, // some navbar padding to avoid content overlap
-     marginTop:0
    },
-   barButtonTextStyle:{
-    color:'white',
-    top:-20
-    },
-    barButtonIconStyle:{
-        tintColor:'white',
-        top:-20
-    },
+
  })
 export default Routes;
