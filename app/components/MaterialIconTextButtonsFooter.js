@@ -25,7 +25,7 @@ function MaterialIconTextButtonsFooter(props) {
           name="heart"
           style={styles.activeIcon}
         ></MaterialCommunityIconsIcon>
-        <Text style={styles.activeContent}>Next 5 days</Text>
+        <Text style={styles.activeContent}>Next 7 days</Text>
       </TouchableOpacity>
 
       <Svg viewBox="0 0 0 0" style={styles.path}>
