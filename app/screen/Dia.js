@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   materialIconTextButtonsFooter: {
-    top: 500,
+    top:500,
     left: 0,
     width: 360,
     height: 60,
