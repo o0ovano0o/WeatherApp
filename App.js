@@ -26,6 +26,7 @@ export default props => {
   let [fontsLoaded] = useFonts({
     'montserrat-700': require('./app/assets/fonts/montserrat-700.ttf'),
     'montserrat-regular': require('./app/assets/fonts/montserrat-regular.ttf'),
+    'montserrat-alternates-regular': require('./app/assets/fonts/montserrat-alternates-regular.ttf'),
     'verdana-regular': require('./app/assets/fonts/verdana-regular.ttf')
   });
 

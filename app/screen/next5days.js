@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity, ScrollView, Dimensions, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -7,12 +7,11 @@ import * as weatherActions from '../actions';
 import {
   LineChart,
 } from "react-native-chart-kit";
-import { Container, Tab, Tabs, TabHeading, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon, Button, Image } from 'native-base';
+import { Container, Tab, Tabs, TabHeading, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon, Button } from 'native-base';
 import Svg, { Path } from "react-native-svg";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 
 
 
@@ -80,7 +79,7 @@ class Line extends Component {
             // marginVertical: 8,
             // borderRadius: 16,
             // margin:5,
-            paddingTop:10,
+            bottom:0,
             fontFamily: "montserrat-regular"
           }}
         />
@@ -104,98 +103,122 @@ class next5days extends Component {
     const time = daily.map(item => getTime(item.dt));
     const uvi = daily.map(item => item.uvi);
     const humidity = daily.map(item => item.humidity);
+    let icon;
+    const setIcon= (data) =>{
+      if(data=='01d'){
+        dt = `../assets/images/01d.png`;
+      }
+      if(data=='02d'){
+        icon = require(`../assets/images/02d.png`);
+      }
+      if(data=='03d'){
+        icon = require(`../assets/images/03d.png`);
+      }
+      if(data=='04d'){
+        icon = require(`../assets/images/04d.png`);
+      }
+      if(data=='09d'){
+        icon = require(`../assets/images/09d.png`);
+      }
+      if(data=='10d'){
+        icon = require(`../assets/images/10d.png`);
+      }
+      if(data=='11d'){
+        icon = require(`../assets/images/11d.png`);
+      }
+      if(data=='13d'){
+        icon = require(`../assets/images/13d.png`);
+      }
+      if(data=='50d'){
+        icon = require(`../assets/images/50d.png`);
+      }
+    }
     return (
-      <Container>
+      <Container style={{backgroundColor:"#385999"}}>
+        <View style={{ flex: 1 }} >
+          <DeckSwiper
+            ref={(c) => this._deckSwiper = c}
+            dataSource={daily}
+            renderEmpty={() =>
+              <View style={{ alignSelf: "center" }}>
+                <Text>Sorry!!!</Text>
+              </View>
+            }
+            renderItem={(item, index) =>
+              <View>
+                {setIcon(item.weather[0].icon)}
+                <Body>
+                  <View style={styles.rect}>
+                    <Text style={styles.ngayHomNay2}> {`${getDay(item.dt)}`} {`${item.weather[0].description}`}</Text>
+                    <View style={styles.iconRow}>
+                      <MaterialCommunityIconsIcon name="oil-temperature" style={styles.icon} ></MaterialCommunityIconsIcon>
 
-      <View style={{ flex: 1}}>
-        <DeckSwiper
-          ref={(c) => this._deckSwiper = c}
-          dataSource={daily}
-          renderEmpty={() =>
-            <View style={{ alignSelf: "center" }}>
-              <Text>Over</Text>
-            </View>
-          }
-          renderItem={(item, index) =>
-            <View  style={styles.rect}>
-                    <Body>
-                    <View style={styles.group}>
-                      <View >
-                            <View style={styles.iconRow}>
-                              <MaterialCommunityIconsIcon
-                                name="oil-temperature"
-                                style={styles.icon}
-                              ></MaterialCommunityIconsIcon>
-                              <MaterialCommunityIconsIcon
-                                name="brightness-1"
-                                style={styles.icon3}
-                              ></MaterialCommunityIconsIcon>
-                              <MaterialCommunityIconsIcon
-                                name="brightness-2"
-                                style={styles.icon4}
-                              ></MaterialCommunityIconsIcon>
-                            </View>
 
-                            <View style={styles.textRow}>
-                              <Text style={styles.text}>{`${Math.ceil(item.temp.day)}*C`}</Text>
-                              <Text style={styles.text2}>{`${Math.ceil(item.temp.eve)}*C`}</Text>
-                              <Text style={styles.text6}>{`${Math.ceil(item.temp.night)}*C`}</Text>
-                            </View>
+                          <MaterialCommunityIconsIcon name="brightness-1" style={styles.icon3}></MaterialCommunityIconsIcon>
+                          <MaterialCommunityIconsIcon name="brightness-2" style={styles.icon4} ></MaterialCommunityIconsIcon>
 
-                            <View style={styles.icon2Row}>
-                              <EntypoIcon name="cloud" style={styles.icon2}></EntypoIcon>
-                              <FeatherIcon name="wind" style={styles.icon5}></FeatherIcon>
-                              <FeatherIcon  name="cloud-rain"  style={styles.icon6}></FeatherIcon>
-                            </View>
 
-                            <View style={styles.text5Row}>
-                              <Text style={styles.text5}>{`${item.clouds}%`}</Text>
-                              <Text style={styles.text4}>{`${Math.ceil(item.wind_speed)}m/s`}</Text>
-                              <Text style={styles.text3}>{`${Math.ceil(item.rain)||0}mm`}</Text>
-                            </View>
-
-                            <View style={styles.icon7Row}>
-                                <Thumbnail source={{uri:`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}} />
-                                <View style={styles.ngayHomNayColumn}>
-                                  <Text style={styles.ngayHomNay}>{`${getDay(item.dt)}`}</Text>
-                                  <Text style={styles.ngayHomNay1}>{ `${item.weather[0].description}`}</Text>
-                                </View>
-                            </View>
-
-                      </View>
                     </View>
-                  </Body>
-            </View>
-          }
-        />
-      </View>
 
+                    <View style={styles.textRow}>
+                      <Text style={styles.text}>{`${Math.ceil(item.temp.day)}*C`}</Text>
+                      <Text style={styles.text2}>{`${Math.ceil(item.temp.eve)}*C`}</Text>
+                      <Text style={styles.text6}>{`${Math.ceil(item.temp.night)}*C`}</Text>
+                    </View>
 
-          <Tabs>
-              <Tab heading={
-                    <TabHeading style={{ backgroundColor: '#DB8D75', color: 'white' }}>
-                      <Text style={{ color: 'white', fontFamily: 'montserrat-regular' }}>Nhiệt độ</Text>
-                    </TabHeading>
-              }>
-                    <Line data={temp} dv={'*C'} time={time} />
-              </Tab>
+                    <View style={styles.icon2Row}>
+                      <EntypoIcon name="cloud" style={styles.icon2}></EntypoIcon>
+                      <FeatherIcon name="wind" style={styles.icon5}></FeatherIcon>
+                      <FeatherIcon name="cloud-rain" style={styles.icon8} ></FeatherIcon>
+                    </View>
 
-              <Tab heading={
-                    <TabHeading style={{ backgroundColor: '#8FC987', color: 'white' }}>
-                      <Text style={{ color: 'white', fontFamily: 'montserrat-regular' }}>Chỉ số UV</Text>
-                    </TabHeading>
-              }>
-                    <Line data={uvi} dv={'UV'} time={time} />
-              </Tab>
+                    <View style={styles.text5Row}>
+                      <Text style={styles.text5}>{`${item.clouds}%`}</Text>
+                      <Text style={styles.text4}>{`${Math.ceil(item.wind_speed)}m/s`}</Text>
+                      <Text style={styles.text3}>{`${Math.ceil(item.rain) || 0}mm`}</Text>
+                    </View>
 
-              <Tab heading={
-                    <TabHeading style={{ backgroundColor: '#59ADFF' }}>
-                      <Text style={{ color: 'white', fontFamily: 'montserrat-regular' }}>Độ ẩm</Text>
-                    </TabHeading>
-              }>
-                    <Line data={humidity} dv={'%'} time={time} />
-              </Tab>
-        </Tabs>
+                  </View>
+                  <Image
+                    source={icon}
+                    resizeMode="contain"
+                    style={styles.image}
+                  ></Image>
+                </Body>
+              </View>
+            }
+          />
+        </View>
+
+            <View style={{flex:1,top:35}}>
+        <Tabs  tabContainerStyle={{ height: 38 }}
+                tabBarUnderlineStyle={{
+                  height: 5,
+                }}>
+          <Tab heading={
+            <TabHeading style={{ backgroundColor: '#DB8D75', color: 'white'}}>
+              <Text style={{ color: 'white', fontFamily: 'montserrat-regular'}}>Nhiệt độ</Text>
+            </TabHeading>
+          }>
+            <Line data={temp} dv={'*C'} time={time} />
+          </Tab>
+
+          <Tab heading={
+            <TabHeading style={{ backgroundColor: '#8FC987', color: 'white' }}>
+              <Text style={{ color: 'white', fontFamily: 'montserrat-regular' }}>Chỉ số UV</Text>
+            </TabHeading>
+          }>
+            <Line data={uvi} dv={'UV'} time={time} />
+          </Tab>
+
+          <Tab heading={
+            <TabHeading style={{ backgroundColor: '#59ADFF' }}>
+              <Text style={{ color: 'white', fontFamily: 'montserrat-regular' }}>Độ ẩm</Text>
+            </TabHeading>
+          }>
+            <Line data={humidity} dv={'%'} time={time} />
+          </Tab>
+        </Tabs></View>
       </Container>
     );
   }
@@ -281,51 +304,69 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "montserrat-regular"
   },
-  group: {
-    alignSelf: "center",
-    marginLeft:40
-  },
   rect: {
-    backgroundColor: "rgba(255,255,255,1)",
-    elevation: 4,
-    marginBottom:10,
-    marginTop:0,
-    marginHorizontal:5,
-    paddingVertical:10,
+    width: 341,
+    height: 255,
+    backgroundColor:'#F0FFFF',
+    borderRadius: 36,
+    borderColor: "rgba(10,199,243,1)",
+    borderWidth: 2,
+    top:40,
 
   },
-  path: {
-    width: 1,
-    height: 1,
-    marginTop: 10,
-    marginLeft: 0
+  ngayHomNay2: {
+    color: "#121212",
+    fontSize: 17,
+    fontFamily: "montserrat-regular",
+    lineHeight: 17,
+    marginTop: 95,
+    alignSelf: 'center'
   },
   icon: {
-    color: "rgba(45,155,207,1)",
-    fontSize: 35,
-    height: 40,
-    width: 36
+    color: "rgba(96,186,226,1)",
+    fontSize: 30,
+    height: 30,
+    width: 30,
+    marginTop: 15
+  },
+  ngayHomNay: {
+    color: "#121212",
+    fontSize: 17,
+    fontFamily: "montserrat-regular",
+    lineHeight: 17,
+    alignSelf: 'center'
   },
   icon3: {
-    color: "rgba(45,155,207,1)",
-    fontSize: 35,
-    height: 40,
-    width: 36,
-    marginLeft: 68
+    color: "rgba(96,186,226,1)",
+    fontSize: 29,
+    height: 29,
+    width: 29,
+    marginTop: 15,
+    marginLeft:73
+
   },
   icon4: {
-    color: "rgba(45,155,207,1)",
-    fontSize: 35,
-    height: 40,
-    width: 36,
-    marginLeft: 79
+    color: "rgba(96,186,226,1)",
+    fontSize: 30,
+    height: 30,
+    width: 30,
+    marginLeft: 74,
+    marginTop: 15
+  },
+  icon3Row: {
+    height: 30,
+    flexDirection: "row",
+    marginLeft: 73
+  },
+  ngayHomNayColumn: {
+    width: 195,
   },
   iconRow: {
-    height: 40,
+    height: 45,
     flexDirection: "row",
-    marginTop: 15,
-    marginLeft: 55,
-    marginRight: 32
+    marginTop: -5,
+    marginLeft: 45,
+    marginRight: 55
   },
   text: {
     color: "#121212",
@@ -338,48 +379,48 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "montserrat-regular",
     lineHeight: 16,
-    marginLeft: 65
+    marginLeft: 70
   },
   text6: {
     color: "#121212",
     fontSize: 16,
     fontFamily: "montserrat-regular",
     lineHeight: 16,
-    marginLeft: 80
+    marginLeft: 70
   },
   textRow: {
     height: 16,
     flexDirection: "row",
-    marginTop: 17,
-    marginLeft: 50,
-    marginRight: 33
+    marginTop: 13,
+    marginLeft: 44,
+    marginRight: 49
   },
   icon2: {
-    color: "rgba(45,155,207,1)",
-    fontSize: 35,
-    height: 40,
-    width: 36
+    color: "rgba(96,186,226,1)",
+    fontSize: 30,
+    height: 30,
+    width: 30
   },
   icon5: {
-    color: "rgba(45,155,207,1)",
-    fontSize: 35,
-    height: 40,
-    width: 36,
-    marginLeft: 69
+    color: "rgba(96,186,226,1)",
+    fontSize: 30,
+    height: 30,
+    width: 30,
+    marginLeft: 78
   },
-  icon6: {
-    color: "rgba(45,155,207,1)",
-    fontSize: 35,
-    height: 40,
-    width: 36,
-    marginLeft: 79
+  icon8: {
+    color: "rgba(96,186,226,1)",
+    fontSize: 30,
+    height: 30,
+    width: 30,
+    marginLeft: 73
   },
   icon2Row: {
-    height: 40,
+    height: 30,
     flexDirection: "row",
-    marginTop: 15,
-    marginLeft: 55,
-    marginRight: 32
+    marginTop: 8,
+    marginLeft: 44,
+    marginRight: 56
   },
   text5: {
     color: "#121212",
@@ -392,52 +433,32 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "montserrat-regular",
     lineHeight: 16,
-    marginLeft: 70
+    marginLeft: 72
   },
   text3: {
     color: "#121212",
     fontSize: 16,
     fontFamily: "montserrat-regular",
     lineHeight: 16,
-    marginLeft: 72
+    marginLeft: 63
   },
   text5Row: {
     height: 16,
     flexDirection: "row",
-    marginTop: 10,
-    marginLeft: 50,
-    marginRight: 33
+    marginTop: 11,
+    marginLeft: 44,
+    marginRight: 50
   },
-  icon7: {
-    color: "rgba(45,155,207,1)",
-    fontSize: 68,
-    height: 68,
-    width: 68
+  pathFiller: {
+    flex: 1,
+    justifyContent: "center"
   },
-  ngayHomNay: {
-    color: "#121212",
-    fontSize: 14,
-    fontFamily: "montserrat-regular",
-    lineHeight: 16
+  image: {
+    top: -5,
+    left: 75,
+    width: 173,
+    height: 145,
+    position: "absolute"
   },
-  ngayHomNay1: {
-    color: "#121212",
-    fontSize: 14,
-    fontFamily: "montserrat-regular",
-    lineHeight: 16,
-    marginTop: 13
-  },
-  ngayHomNayColumn: {
-    width: 200,
-    marginLeft: 30,
-    marginTop: 5,
-    marginBottom: 5
-  },
-  icon7Row: {
-    height: 68,
-    flexDirection: "row",
-    marginLeft: 49,
-    marginRight: 74,
-    top:10
-  }
+
 });
