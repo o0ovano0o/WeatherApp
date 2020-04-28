@@ -8,7 +8,7 @@ import {
   LineChart,
 } from "react-native-chart-kit";
 import { Container, Tab, Tabs, TabHeading, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon, Button } from 'native-base';
-import Svg, { Path } from "react-native-svg";
+
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FeatherIcon from "react-native-vector-icons/Feather";

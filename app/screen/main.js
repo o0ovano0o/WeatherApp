@@ -24,6 +24,26 @@ const store = createStore(searchReducer, composeWithDevTools(
   applyMiddleware(thunk, promise, logger),
 ));
 
+class Today extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Dia />
+      </Provider>
+    );
+  }
+}
+
+class Tom extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Tomorrow />
+      </Provider>
+    );
+  }
+}
+
 class Main2 extends Component {
   render() {
     return (
@@ -59,4 +79,4 @@ class App extends Component  {
     }
   }
 
-    export {App,Main2}
+    export {App,Main2, Tom, Today}
