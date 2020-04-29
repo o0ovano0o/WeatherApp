@@ -20,7 +20,14 @@ import styles from '../assets/style';
 import Splash from './Splash';
 import AssetExample from "../components/AssetExample";
 
-
+const getDate= data => {
+  if(data=='now'){
+    var date = new Date();
+    var month = date.getMonth()+1;
+    var day =  date.getDate();
+    return  day + ' tháng ' + month ;
+  }
+};
 const getTime = data => {
   if(data=='now'){
     var date = new Date();
@@ -37,7 +44,7 @@ const getTime = data => {
   var minutes = "0" + date.getMinutes();
   return hours + ':' + minutes.substr('-2');
 };
-const getbg = data =>{
+const getbg = (data) =>{
   let imgbg={
     bgcolor:
           (<ImageBackground
@@ -47,40 +54,74 @@ const getbg = data =>{
     rect4cl:(<View style={[styles.rect4, styles.rect4bg1]}></View>),
     rect2cl:(<View style={[styles.rect2bg]}></View>)
   };
-  if(data=='now'){
+
     var date = new Date();
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
     if (hours>5&&hours<9){
-      imgbg.bgcolor=(<ImageBackground source={require('../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
-      </ImageBackground>);
-      imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bg4]}></View>);
-      imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bg4]}></View>);
-      imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bg4]}></View>);
+      if(data>20){
+          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          </ImageBackground>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgnice]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgnice]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgnice]}></View>);
+        }
+        else{
+          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/sad-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          </ImageBackground>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgsad_AM]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgsad_AM]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgsad_AM]}></View>);
+        }
     }
     else if(hours>=22 || hours<3){
-      imgbg.bgcolor=(<ImageBackground source={require('../assets/images/night-tim-PM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
-      </ImageBackground>);
-      imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bg3]}></View>);
-      imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bg3]}></View>);
-      imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bg3]}></View>);
+      if(data<5){
+          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/sad-ice.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          </ImageBackground>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgsad_AM]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgsad_AM]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgsad_AM]}></View>);
+      }
+      else{
+          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/night-tim-PM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          </ImageBackground>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgnight_tim_PM]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgnight_tim_PM]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgnight_tim_PM]}></View>);
+      }
     }
     else if(hours>=9&&hours<17){
+      if(data>=20&&data<30){
+          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          </ImageBackground>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgnice]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgnice]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgnice]}></View>);
+      }
+      else if(data<20){
+          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/sad-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          </ImageBackground>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgsad_AM]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgsad_AM]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgsad_AM]}></View>);
+      }
+      else{
           imgbg.bgcolor=(<ImageBackground source={require('../assets/images/hot-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
-          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bg2]}></View>);
-          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bg2]}></View>);
-          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bg2]}></View>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bghot_AM]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bghot_AM]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bghot_AM]}></View>);
+      }
     }
     else{
           imgbg.bgcolor=(<ImageBackground
             source={require('../assets/images/Night-PM.png')}resizeMode="stretch"style={styles.image}imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
-          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bg1]}></View>);
-          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bg1]}></View>);
-          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rectbg1]}></View>);
+          imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgNight_PM]}></View>);
+          imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgNight_PM]}></View>);
+          imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgNight_PM]}></View>);
     }
-  }
+
   return imgbg;
 };
 let time = new Date();
@@ -93,12 +134,13 @@ const renderContent = (weatherData,weatherDatas) => (
       <View>
           <View style={styles.rect7Stack}>
                 <View style={styles.rect7}></View>
-                {getbg('now').bgcolor}
+
+                {getbg(weatherData.main.temp).bgcolor}
                 <View style={styles.rect6}>
                       <View style={styles.icon9Row}>
                             <View style={styles.rect8Column}>
                                 <View styles={styles.rect8}>
-                                    {getbg('now').rect8cl}
+                                    {getbg(weatherData.main.temp).rect8cl}
                                     <Text style={styles.loremIpsum8}>{`${getTime('now')}`}</Text>
                                 </View>
                             </View>
@@ -125,7 +167,7 @@ const renderContent = (weatherData,weatherDatas) => (
                 ></MaterialIconTextButtonsFooter>
 
                 <View style={styles.rect2}>
-                    {getbg('now').rect2cl}
+                    {getbg(weatherData.main.temp).rect2cl}
                     <EntypoIcon name="adjust" style={styles.icon7}></EntypoIcon>
                     <View style={styles.icon6Row}>
                         <FeatherIcon name="thermometer" style={styles.icon6}></FeatherIcon>
@@ -141,7 +183,7 @@ const renderContent = (weatherData,weatherDatas) => (
                   style={styles.icon2}
                 ></MaterialCommunityIconsIcon>
 
-                {getbg('now').rect4cl}
+                {getbg(weatherData.main.temp).rect4cl}
                 <AssetExample></AssetExample>
                 <EntypoIcon name="triangle-down" style={styles.icon10}></EntypoIcon>
                 <EntypoIcon name="triangle-up" style={styles.icon11}></EntypoIcon>
@@ -149,7 +191,7 @@ const renderContent = (weatherData,weatherDatas) => (
                 <EntypoIcon name="circle" style={styles.icon15}></EntypoIcon>
                 <Text style={styles.c17}>C</Text>
                 <Text style={styles.currentLocation}>{`${weatherData.name}`}</Text>
-                <Text style={styles.today12May19}>Today, 12 May 19</Text>
+                <Text style={styles.today12May19}>Hôm nay, {`${getDate('now')}`}</Text>
                 <Text style={styles.day13}>MAX</Text>
                 <Text style={styles.night}>MIN</Text>
                 <Text style={styles.loremIpsum}>{`${weatherData.main.temp}`}</Text>

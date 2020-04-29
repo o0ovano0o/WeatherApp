@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
   },
   ngayHomNay2: {
     color: "#121212",
-    fontSize: 17,
+    fontSize: 15,
     fontFamily: "montserrat-regular",
     lineHeight: 17,
     marginTop: 95,

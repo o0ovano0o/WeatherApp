@@ -39,17 +39,20 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 12
   },
 
-  rect8bg1: {
+  rect8bgNight_PM: {
     backgroundColor:"rgba(43,87,140,1)",
   },
-  rect8bg2: {
+  rect8bghot_AM: {
     backgroundColor:"rgba(255, 157, 0, 1)",
   },
-  rect8bg3: {
+  rect8bgnight_tim_PM: {
     backgroundColor:"#6051BF",
   },
-  rect8bg4: {
+  rect8bgnice: {
     backgroundColor:"#38CAF8",
+  },
+  rect8bgsad_AM: {
+    backgroundColor:"#8ca4a3",
   },
   rect4:{
     top: 382,
@@ -59,17 +62,20 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderRadius: 100
   },
-  rect4bg1:{
+  rect4bgNight_PM:{
     backgroundColor:"rgba(74,144,226,1)",
   },
-  rect4bg2:{
+  rect4bghot_AM:{
     backgroundColor:"rgb(255,255,102)"
   },
-  rect4bg3:{
+  rect4bgnight_tim_PM:{
     backgroundColor:"#A080EB"
   },
-  rect4bg4:{
+  rect4bgnice:{
     backgroundColor:"#61EBFA"
+  },
+  rect4bgsad_AM:{
+    backgroundColor:"#8ca4a3"
   },
   loremIpsum8: {
     color: "black",
@@ -218,17 +224,20 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
   },
-  rect2bg1:{
+  rect2bgNight_PM:{
     backgroundColor:'rgba(0, 33, 255, 0.54)',
   },
-  rect2bg2:{
+  rect2bghot_AM:{
     backgroundColor:"rgb(255,255,102)"
   },
-  rect2bg3:{
+  rect2bgnight_tim_PM:{
     backgroundColor:"#A080EB"
   },
-  rect2bg4:{
+  rect2bgnice:{
     backgroundColor:"#61EBFA"
+  },
+  rect2bgsad_AM:{
+    backgroundColor:"#ccc7c1"
   },
   loremIpsum4: {
     color: "black",
@@ -316,7 +325,7 @@ const styles = StyleSheet.create({
     top: 50,
     left: 20,
     width: 300,
-    height: 45,
+    height: 60,
     color: "rgba(243,241,241,1)",
     position: "absolute",
     fontSize: 20,
