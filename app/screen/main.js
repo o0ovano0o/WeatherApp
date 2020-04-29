@@ -69,10 +69,10 @@ class App extends Component  {
       return (
           <NavigationContainer>
             <Drawer.Navigator initialRouteName="Home">
-              <Drawer.Screen name="Home" component={Main1} />
-              <Drawer.Screen name="next5days" component={Main2} />
-              <Drawer.Screen name="Tomorrow" component={Tomorrow} />
-              <Drawer.Screen name="More" component={Dia} />
+              <Drawer.Screen name="Thời tiết trong ngày" component={Main1} />
+              <Drawer.Screen name="Chi tiết" component={Today} />
+              <Drawer.Screen name="Thời tiết 7 ngày tới" component={Main2} />
+              <Drawer.Screen name="Thời tiết ngày mai" component={Tom} />
             </Drawer.Navigator>
           </NavigationContainer>
       );

@@ -1,33 +1,41 @@
-import * as React from 'react';
-import { Text, View, StyleSheet,TouchableOpacity,ImageBackground,Image,ScrollView,Button } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtonsFooter";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import EntypoIcon from "react-native-vector-icons/Entypo";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import Tomorrow from './Tomorrow.js';
-import Next5 from './next5days.js';
-import Main from './main.js';
-import Dia from './Dia.js';
-import sty from '../assets/style';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  FlatList,
+  Keyboard,
+  StatusBar
+} from "react-native";
 
-const Drawer = createDrawerNavigator();
+import * as Animatable from 'react-native-animatable'
 
+import { SearchBar } from 'react-native-elements';
 
+export default class App extends React.Component {
+  state = {
+    search: '',
+  };
 
-let time = new Date();
+  updateSearch = search => {
+    this.setState({ search });
+  };
 
-export default function App(props)  {
-  return (
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={Main} />
-          <Drawer.Screen name="next5days" component={Next5} />
-          <Drawer.Screen name="Tomorrow" component={Tomorrow} />
-          <Drawer.Screen name="More" component={Dia} />
-        </Drawer.Navigator>
-      </NavigationContainer>
-  );
+  render() {
+    const { search } = this.state;
+
+    return (
+      <View>
+      <StatusBar hidden={false}></StatusBar>
+      <Animatable.View animation="slideInRight" duration={4000}>
+      <SearchBar
+        placeholder="Type Here..."
+        onChangeText={this.updateSearch}
+        value={search}
+      />
+      </Animatable.View>
+      </View>
+    );
+  }
 }

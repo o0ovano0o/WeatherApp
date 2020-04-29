@@ -19,7 +19,8 @@ import _ from 'lodash';
 import styles from '../assets/style';
 import Splash from './Splash';
 import AssetExample from "../components/AssetExample";
-
+import SearchBar from "../components/Search_Bar";
+import Icon from 'react-native-vector-icons/Ionicons'
 const getDate= data => {
   if(data=='now'){
     var date = new Date();
@@ -178,6 +179,7 @@ const renderContent = (weatherData,weatherDatas) => (
                       name="align-left"
                       style={styles.icon}
                 ></FontAwesomeIcon>
+
                 <MaterialCommunityIconsIcon
                   name="map-marker"
                   style={styles.icon2}
@@ -185,6 +187,7 @@ const renderContent = (weatherData,weatherDatas) => (
 
                 {getbg(weatherData.main.temp).rect4cl}
                 <AssetExample></AssetExample>
+                <SearchBar></SearchBar>
                 <EntypoIcon name="triangle-down" style={styles.icon10}></EntypoIcon>
                 <EntypoIcon name="triangle-up" style={styles.icon11}></EntypoIcon>
                 <EntypoIcon name="cloud" style={styles.icon14}></EntypoIcon>

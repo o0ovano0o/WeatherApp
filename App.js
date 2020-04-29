@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { AppRegistry, View } from 'react-native';
-import Router from './app/screen/Router.js'
+import Router from './app/screen/Router.js';
+
 // import configureStore from './app/reducers/index';
 // import { Provider } from 'react-redux';
 // const store = configureStore()

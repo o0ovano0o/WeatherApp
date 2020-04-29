@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
  width:Dimensions.get("window").width,
   },
   materialIconTextButtonsFooter1111: {
-    top:Dimensions.get("window").height-144,
+    bottom:0,
     left: 0,
     width: 360,
     height: 60,

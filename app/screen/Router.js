@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Scene } from 'react-native-router-flux'
 import { StyleSheet } from 'react-native'
 import {App, Main2, Tom, Today} from './main.js'
-
+import Sidebar from './Sidebar.js'
 const Routes = () => (
    <Router  navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene} backButtonTextStyle = {{color:'#000000'}}
    barButtonIconStyle={{ tintColor: '#000000' }} backButtonTintColor = '#ffffff' >
@@ -11,6 +11,7 @@ const Routes = () => (
          <Scene key = "next5" component = {Main2} title="7 ngày tới" />
          <Scene key = "tomorrow" component = {Tom} title="Ngày mai" narBarButtonColor="white"/>
          <Scene key = "dia" component = {Today}  title="Chi tiết"  narBarButtonColor="white"/>
+         <Scene key = "Sidebar" component = {Sidebar} />
       </Scene>
    </Router>
 )
