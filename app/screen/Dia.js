@@ -15,37 +15,7 @@ import {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as weatherActions from '../actions';
-const getbg = data =>{
-  let imgbg={
-    bgcolor:
-          (<ImageBackground
-            source={require('../assets/images/hot-AM.png')} resizeMode="stretch" style={sty.image} imageStyle={sty.image_imageStyle}>
-          </ImageBackground>),
-  };
-  if(data=='now'){
-    var date = new Date();
-    var hours = date.getHours();
-    var minutes = "0" + date.getMinutes();
-    if (hours>5&&hours<9){
-      imgbg.bgcolor=(<ImageBackground source={require('../assets/images/nice-AM.png')} resizeMode="stretch" style={sty.image} imageStyle={sty.image_imageStyle}>
-      </ImageBackground>);
-    }
-    else if(hours>=22 || hours<3){
-      imgbg.bgcolor=(<ImageBackground source={require('../assets/images/night-tim-PM.png')} resizeMode="stretch" style={sty.image} imageStyle={sty.image_imageStyle}>
-      </ImageBackground>);
-    }
-    else if(hours>=9&&hours<17){
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/hot-AM.png')} resizeMode="stretch" style={sty.image} imageStyle={sty.image_imageStyle}>
-          </ImageBackground>);
-    }
-    else{
-          imgbg.bgcolor=(<ImageBackground
-            source={require('../assets/images/Night-PM.png')}resizeMode="stretch"style={sty.image}imageStyle={sty.image_imageStyle}>
-          </ImageBackground>);
-    }
-  }
-  return imgbg;
-};
+
 
 
 class Line extends Component {
@@ -209,62 +179,52 @@ class App extends Component {
     }
     return (
       <View>
+          <View style={{ padding:0,marginBottom:35}}>
+            <ScrollView >
+              <View style={styles.container}>
+                <View style={styles.iconRow}>
+                  <FontAwesomeIcon
+                    name="thermometer-2"
+                    style={styles.icon}
+                  ></FontAwesomeIcon>
+                  <Text style={styles.nhiệtDộ}>{`Biểu đồ`}</Text>
+                </View>
 
-      {getbg('now').bgcolor}
+                <View style={styles.rect}>
+                  <Line data={daytemp} time={time} ></Line>
+                </View>
 
-      <View style={styles.container1}>
-          <View style={{ padding:0,paddingTop:28,marginBottom:35, borderRadius:30 }}>
-            <ScrollView style={{borderRadius:30 }}>
+                <View style={styles.icon4Row}>
+                <MaterialCommunityIconsIcon
+                      name="oil-temperature"
+                      style={styles.icon4}
+                    ></MaterialCommunityIconsIcon>
+                  <Text style={styles.loremIpsum12}>Nhiệt độ chi tiết</Text>
+                </View>
 
-      <View style={styles.container}>
-        <View style={styles.iconRow}>
-          <FontAwesomeIcon
-            name="thermometer-2"
-            style={styles.icon}
-          ></FontAwesomeIcon>
-          <Text style={styles.nhiệtDộ}>{`Biểu đồ`}</Text>
-        </View>
+                <View style={styles.rect8Row}>
+                  <ScrollView horizontal={true}>
+                    {rendertemp(hf)}
+                  </ScrollView>
+                </View>
 
-        <View style={styles.rect}>
-          <Line data={daytemp} time={time} ></Line>
-        </View>
-
-        <View style={styles.icon4Row}>
-        <MaterialCommunityIconsIcon
-              name="oil-temperature"
-              style={styles.icon4}
-            ></MaterialCommunityIconsIcon>
-          <Text style={styles.loremIpsum12}>Nhiệt độ chi tiết</Text>
-        </View>
-
-        <View style={styles.rect8Row}>
-          <ScrollView horizontal={true}>
-            {rendertemp(hf)}
+                <View style={styles.rect6}>
+                  <View style={styles.icon5Row}>
+                    <EntypoIcon name="drop" style={styles.icon4}></EntypoIcon>
+                    <Text style={styles.loremIpsum}>Độ ẩm</Text>
+                  </View>
+                  <View style={styles.rect7}>
+                    <ScrollView horizontal={true} >
+                      {renderhum(hf)}
+                    </ScrollView>
+                  </View>
+                </View>
+            </View>
           </ScrollView>
-        </View>
-
-
-
-
-        <View style={styles.rect6}>
-          <View style={styles.icon5Row}>
-          <EntypoIcon name="drop" style={styles.icon4}></EntypoIcon>
-            <Text style={styles.loremIpsum}>Độ ẩm</Text>
-          </View>
-          <View style={styles.rect7}>
-            <ScrollView horizontal={true} >
-              {renderhum(hf)}
-            </ScrollView>
-          </View>
-        </View>
-      </View>
-      </ScrollView>
-          </View>
       </View>
       <MaterialIconTextButtonsFooter
         style={styles.materialIconTextButtonsFooter1111}
       ></MaterialIconTextButtonsFooter>
-
     </View>
     );
   }
