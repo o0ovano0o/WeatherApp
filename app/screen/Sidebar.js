@@ -62,7 +62,7 @@ class FlatListDemo extends Component {
 
   updateSearch = search => {
         this.setState({ search }, () => {
-            if (search.length < 2) {
+            if (search.length < 1) {
                 this.setState({
                     data: []
                 });
