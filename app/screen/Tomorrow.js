@@ -71,7 +71,7 @@ const getDay = data => {
   var now = new Date();
   var now_day = now.getDate();
   var hour = date.getHours();
-  return ((now_day - day >= 27 || day - now_day === 1) && hour % 2 === 0) ? true : false;
+  return (((now_day===30 && now_day - day === 29) || (now_day===31 && now_day - day === 30) || day - now_day === 1) && hour % 2 === 0) ? true : false;
 };
 const getFullDay = data => {
   var date = new Date(data * 1000);
