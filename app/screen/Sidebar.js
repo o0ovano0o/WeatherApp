@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, Button} from "react-native";
 import { ListItem, SearchBar,List } from "react-native-elements";
-import file  from '../assets/cityVN.json';
+import file  from '../assets/citybig.json';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -54,7 +54,7 @@ class FlatListDemo extends Component {
   }
 
   renderHeader = () => {
-      return <SearchBar placeholder="Search Here..."
+      return <SearchBar placeholder="Tìm kiếm"
           lightTheme round editable={true}
           value={this.state.search}
           onChangeText={this.updateSearch} />;

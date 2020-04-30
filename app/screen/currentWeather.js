@@ -130,7 +130,7 @@ const getbg = (data) =>{
 };
 
 let time = new Date();
-const renderContent = (weatherData,weatherDatas) => (
+const renderContent = (weatherData,weatherDatas,onPress) => (
   <View style={styles.container}>
 
      { (_.isEmpty(weatherData)||_.isEmpty(weatherDatas)) ?
@@ -183,7 +183,7 @@ const renderContent = (weatherData,weatherDatas) => (
                       name="align-left"
                       style={styles.icon}
                 ></FontAwesomeIcon>
-                <Dv />
+                <Dv onPress={()=> onPress()}/>
 
 
                 {getbg(weatherData.main.temp).rect4cl}
@@ -217,9 +217,9 @@ const renderError = errorMessage =>
 class CurrentWeather extends Component {
 
   render(){
-  const { weatherData, isLoading, errorMessage,weatherDatas } = this.props;
+  const { weatherData, isLoading, errorMessage,weatherDatas,onPress } = this.props;
   const stuff = _.isEmpty(errorMessage) ?
-  renderContent(weatherData,weatherDatas):
+  renderContent(weatherData,weatherDatas,onPress):
   renderError(errorMessage);
   return (
     <View style={styles.container}>

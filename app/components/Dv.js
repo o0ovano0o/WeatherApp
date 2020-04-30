@@ -13,7 +13,7 @@ export default class Dv extends Component {
   render(){
   return (
 
-    <TouchableOpacity style={styles.container} onPress={() => gotoDv()}>
+    <TouchableOpacity style={styles.container} onPress={()=>this.props.onPress()}>
                 <MaterialCommunityIconsIcon
                   name="map-marker"
                   style={styles.icon3}

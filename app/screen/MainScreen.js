@@ -35,6 +35,7 @@ export class MainScreen extends Component {
           weatherDatas={weatherDatas}
           isLoading={isLoading}
           errorMessage={errorMessage}
+          onPress ={()=> this.getLocation()}
         />
       </View>
     );
