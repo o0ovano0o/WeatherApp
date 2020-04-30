@@ -15,7 +15,8 @@ import Next5 from './next5days.js';
 import Dia from './Dia.js';
 const Drawer = createDrawerNavigator();
 import MainScreen from './MainScreen';
-
+import Searchcity from './Sidebar';
+import Dv from './Dv';
 
 
 
@@ -23,6 +24,26 @@ const logger = createLogger();
 const store = createStore(searchReducer, composeWithDevTools(
   applyMiddleware(thunk, promise, logger),
 ));
+
+class CurrentWeather extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Dv />
+      </Provider>
+    );
+  }
+}
+
+class Search extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Searchcity />
+      </Provider>
+    );
+  }
+}
 
 class Today extends Component {
   render() {
@@ -79,4 +100,4 @@ class App extends Component  {
     }
   }
 
-    export {App,Main2, Tom, Today}
+    export {App,Main2, Tom, Today, Search, CurrentWeather }

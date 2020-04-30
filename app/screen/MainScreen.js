@@ -22,6 +22,7 @@ export class MainScreen extends Component {
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 });
   }
   async componentDidMount() {
+    if(JSON.stringify(this.props.state.weatherData)===JSON.stringify({}))
     await this.getLocation();
   }
   render() {

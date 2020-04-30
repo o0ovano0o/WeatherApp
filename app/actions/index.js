@@ -85,7 +85,7 @@ export function searchByCity(searchTerm) {
     return (dispatch) => {
         const { appid, url } = config;
         dispatch(setIsLoading(true));
-        return fetch(`${url}weather?q=${searchTerm}&appid=${appid}`)
+        return fetch(`${url}weather?id=${searchTerm}&appid=${appid}`)
             .then(response => response.json())
             .then((data) => {
                 dispatch(setErrorMessage(''));

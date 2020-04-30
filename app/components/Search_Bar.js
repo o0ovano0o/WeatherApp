@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
   container: {
     height:40,
     width:40,
-    top:-30,
-    left:290,
+    top:-69,
+    left:275,
     borderRadius: 40,
   },
   icon3: {
     color: "white",
-    fontSize: 25,
+    fontSize: 30,
     position: "absolute",
     top: -1,
     left: 0

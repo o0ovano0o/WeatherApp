@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: "montserrat-regular",
     marginTop: -2,
-    marginLeft: 66
+    marginLeft: 69
   },
   icon5: {
     color: "rgba(0,0,0,1)",
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     color: "rgba(0,0,0,1)",
     fontSize: 14,
     width: 20,
-    height: 24
+    height: 24,
   },
   icon6Row: {
     height: 24,
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     height: 18,
     flexDirection: "row",
     marginTop: 6,
-    marginLeft: 32,
+    marginLeft: 36,
     marginRight: 39
   },
   materialIconTextButtonsFooter: {
@@ -204,6 +204,13 @@ const styles = StyleSheet.create({
     width: 360,
     height: 60,
     position: "absolute"
+  },
+  containerbutton: {
+    height:40,
+    width:40,
+    top:-30,
+    left:290,
+    borderRadius: 40,
   },
   rect2: {
     top: 350,

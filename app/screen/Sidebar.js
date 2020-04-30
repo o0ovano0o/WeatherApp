@@ -1,7 +1,16 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, Button } from "react-native";
-import { ListItem, SearchBar } from "react-native-elements";
+import { View, Text, FlatList, Button} from "react-native";
+import { ListItem, SearchBar,List } from "react-native-elements";
+import file  from '../assets/cityVN.json';
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as weatherActions from '../actions';
+import { Actions } from 'react-native-router-flux';
 
+const gotoHome=()=>{
+  Actions.home()
+}
 class FlatListDemo extends Component {
 
   constructor(props) {
@@ -12,7 +21,7 @@ class FlatListDemo extends Component {
       data: [],
       temp: [],
       error: null,
-      search: null
+      search: '',
     };
   }
 
@@ -21,22 +30,24 @@ class FlatListDemo extends Component {
   }
 
    getData = async ()  => {
-    const url = `https://jsonplaceholder.typicode.com/users`;
-    this.setState({ loading: true });
 
+    this.setState({ loading: true });
      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        this.setResult(json);
+        this.setResult(file);
      } catch (e) {
         this.setState({ error: 'Error Loading content', loading: false });
      }
   };
-
+  async fetchNewData(item){
+    this.setState({ loading: true });
+    await this.props.actions.searchByCoordinates(item.vt.lat,item.vt.lon);
+    await this.props.actions.search5daysByCoordinates(item.vt.lat,item.vt.lon);
+    gotoHome();
+  }
   setResult = (res) => {
     this.setState({
-      data: [...this.state.data, ...res],
-      temp: [...this.state.temp, ...res],
+      data: [],
+      temp: res,
       error: res.error || null,
       loading: false
     });
@@ -51,46 +62,61 @@ class FlatListDemo extends Component {
 
   updateSearch = search => {
         this.setState({ search }, () => {
-            if ('' == search) {
+            if (search.length < 2) {
                 this.setState({
-                    data: [...this.state.temp]
+                    data: []
                 });
                 return;
             }
 
             this.state.data = this.state.temp.filter(function(item){
                 return item.name.includes(search);
-              }).map(function({id, name, email}){
-                return {id, name, email};
+              }).map(function({id, name, vt}){
+                return {id, name, vt};
             });
         });
   };
 
   render() {
     return (
-      this.state.error != null ?
+      this.state.loading ?
         <View style={{ flex: 1, flexDirection: 'column',justifyContent: 'center', alignItems: 'center' }}>
-          <Text>{this.state.error}</Text>
-          <Button onPress={
+          <Text>Loadding {this.state.search}...</Text>
+          {/* <Button onPress={
             () => {
               this.getData();
             }
-          } title="Reload" />
+          } title="Reload" /> */}
         </View> :
         <FlatList
             ListHeaderComponent={this.renderHeader}
             data={this.state.data}
-            keyExtractor={item => item.email}
+            keyExtractor={item => {`${item.id}`}}
             renderItem={({ item }) => (
             <ListItem
                 roundAvatar
                 title={`${item.name}`}
-                subtitle={item.email}
+                eyExtractor={item => {`${item.id}`}}
+                bottomDivider
+                onPress={
+                  ()=> {
+                    this.setState({ search: item.name})
+                    this.fetchNewData(item)
+                  }
+                }
             />
+
         )}
       />
     );
   }
 }
 
-export default FlatListDemo;
+
+export default connect(state => ({
+  state,
+}),
+  dispatch => ({
+    actions: bindActionCreators(weatherActions, dispatch),
+  }),
+)(FlatListDemo);

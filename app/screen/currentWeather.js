@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   TouchableOpacity
 } from "react-native";
+import { Actions } from 'react-native-router-flux';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
@@ -20,7 +21,9 @@ import styles from '../assets/style';
 import Splash from './Splash';
 import AssetExample from "../components/AssetExample";
 import SearchBar from "../components/Search_Bar";
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
+import Dv from '../components/Dv';
+
 const getDate= data => {
   if(data=='now'){
     var date = new Date();
@@ -125,6 +128,7 @@ const getbg = (data) =>{
 
   return imgbg;
 };
+
 let time = new Date();
 const renderContent = (weatherData,weatherDatas) => (
   <View style={styles.container}>
@@ -179,11 +183,8 @@ const renderContent = (weatherData,weatherDatas) => (
                       name="align-left"
                       style={styles.icon}
                 ></FontAwesomeIcon>
+                <Dv />
 
-                <MaterialCommunityIconsIcon
-                  name="map-marker"
-                  style={styles.icon2}
-                ></MaterialCommunityIconsIcon>
 
                 {getbg(weatherData.main.temp).rect4cl}
                 <AssetExample></AssetExample>
@@ -197,7 +198,7 @@ const renderContent = (weatherData,weatherDatas) => (
                 <Text style={styles.today12May19}>Hôm nay, {`${getDate('now')}`}</Text>
                 <Text style={styles.day13}>MAX</Text>
                 <Text style={styles.night}>MIN</Text>
-                <Text style={styles.loremIpsum}>{`${weatherData.main.temp}`}</Text>
+                <Text style={styles.loremIpsum}>{`${Math.ceil(weatherData.main.temp)}`}</Text>
                 <Text style={styles.sunnyWithClouds}>{`${weatherData.weather[0].description}`}</Text>
                 <Text style={styles.loremIpsum2}>{`${weatherDatas.daily[0].temp.max}`}</Text>
                 <Text style={styles.loremIpsum3}>{`${weatherDatas.daily[0].temp.min}`}</Text>
@@ -213,8 +214,10 @@ const renderError = errorMessage =>
         <Text >{errorMessage}</Text>
       </View>
     );
-const CurrentWeather = (props) => {
-  const { weatherData, isLoading, errorMessage,weatherDatas } = props;
+class CurrentWeather extends Component {
+
+  render(){
+  const { weatherData, isLoading, errorMessage,weatherDatas } = this.props;
   const stuff = _.isEmpty(errorMessage) ?
   renderContent(weatherData,weatherDatas):
   renderError(errorMessage);
@@ -225,5 +228,7 @@ const CurrentWeather = (props) => {
         stuff}
     </View>
   );
+      }
 };
+
 export default CurrentWeather;
