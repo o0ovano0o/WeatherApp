@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     marginLeft: 66,
   },
   sunrise: {
-    width: 60,
+    width: 100,
     height: 20,
     color: "rgba(11,10,10,1)",
     fontSize: 10,
@@ -108,21 +108,21 @@ const styles = StyleSheet.create({
     color: "rgba(11,10,10,1)",
     fontSize: 10,
     fontFamily: "montserrat-regular",
-    marginLeft: 50
+    marginLeft: 25
   },
   sunset: {
-    width: 60,
+    width: 100,
     height: 20,
     color: "rgba(11,10,10,1)",
     fontSize: 10,
     fontFamily: "montserrat-regular",
-    marginLeft: 40
+    marginLeft: 20
   },
   sunriseRow: {
     height: 14,
     flexDirection: "row",
     marginTop: 20,
-    marginLeft: 20,
+    marginLeft: 10,
     marginRight: 37
   },
   loremIpsum7: {
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
   },
   rect2bgNight_PM:{
-    backgroundColor:'rgba(0, 33, 255, 0.54)',
+    backgroundColor:"rgba(74,144,226,1)",
   },
   rect2bghot_AM:{
     backgroundColor:"rgb(255,255,102)"
@@ -259,8 +259,7 @@ const styles = StyleSheet.create({
     width: 31,
     height: 30,
     position: "absolute",
-    top: 10,
-    left: 20
+    
   },
   icon2: {
     color: "rgba(255,255,255,1)",
@@ -277,7 +276,7 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     position: "absolute",
-    top: 158,
+    top: 198,
     left: 75
   },
   icon11: {
@@ -286,7 +285,7 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     position: "absolute",
-    top: 139,
+    top: 158,
     left: 75
   },
   icon14: {
@@ -341,7 +340,7 @@ const styles = StyleSheet.create({
   day13: {
     top: 140,
     left: 40,
-    width: 50,
+    width: 100,
     height: 20,
     color: "rgba(245,239,239,1)",
     position: "absolute",
@@ -349,8 +348,8 @@ const styles = StyleSheet.create({
     fontFamily: "montserrat-regular"
   },
   night: {
-    top: 160,
-    left: 43,
+    top: 180,
+    left: 40,
     width: 70,
     height: 20,
     color: "rgba(245,240,240,1)",
@@ -375,7 +374,7 @@ const styles = StyleSheet.create({
     fontFamily: "montserrat-regular"
   },
   loremIpsum2: {
-    top: 140,
+    top: 160,
     left: 106,
     color: "rgba(241,233,233,1)",
     position: "absolute",
@@ -383,7 +382,7 @@ const styles = StyleSheet.create({
     fontFamily: "montserrat-regular"
   },
   loremIpsum3: {
-    top: 160,
+    top: 200,
     left: 106,
     color: "rgba(241,233,233,1)",
     position: "absolute",

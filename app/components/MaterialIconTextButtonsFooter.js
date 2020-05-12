@@ -4,13 +4,16 @@ import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommun
 import Svg, { Path } from "react-native-svg";
 import { Actions } from 'react-native-router-flux';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+
 const gotoNext5 = () => {
   Actions.next5()
 }
 const gotoTomorrow=()=>{
   Actions.tomorrow()
 }
-
+const gotoHome=()=>{
+  Actions.home()
+}
 
 function MaterialIconTextButtonsFooter(props) {
   return (
@@ -20,18 +23,18 @@ function MaterialIconTextButtonsFooter(props) {
           name="timer"
           style={styles.icon1}
         ></MaterialCommunityIconsIcon>
-        <Text style={styles.btn1Text}>{ "Tomorrow"}</Text>
+        <Text style={styles.btn1Text}>{ "Ngài mai"}</Text>
       </TouchableOpacity>
-
-
-
-
+      <TouchableOpacity style={styles.buttonWrapper1} onPress={gotoHome}>
+        <Icon name="home" style={styles.icon}></Icon>
+        <Text style={styles.btn1Text}>{ "Trang chủ"}</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.activeButtonWrapper} onPress={gotoNext5} >
         <MaterialCommunityIconsIcon
           name="heart"
           style={styles.activeIcon}
         ></MaterialCommunityIconsIcon>
-        <Text style={styles.activeContent}>Next 7 days</Text>
+        <Text style={styles.activeContent}>7 ngày tới</Text>
       </TouchableOpacity>
 
       <Svg viewBox="0 0 0 0" style={styles.path}>
@@ -126,6 +129,12 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     position: "absolute"
+  },
+  icon: {
+    backgroundColor: "transparent",
+    color: "rgba(11,11,11,1)",
+    fontSize: 22,
+    opacity: 0.8
   }
 });
 

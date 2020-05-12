@@ -13,7 +13,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Tomorrow from './Tomorrow.js';
 import Next5 from './next5days.js';
 import Dia from './Dia.js';
-const Drawer = createDrawerNavigator();
+
 import MainScreen from './MainScreen';
 import Searchcity from './Sidebar';
 import Dv from './Dv';
@@ -77,7 +77,7 @@ class Main2 extends Component {
   }
 }
 
-class Main1 extends Component {
+class Main1 extends Component  {
   render() {
     return (
       <Provider store={store}>
@@ -86,7 +86,8 @@ class Main1 extends Component {
   }
 }
 
-
+const Drawer = createDrawerNavigator(
+);
 class App extends Component  {
     render(){
       return (

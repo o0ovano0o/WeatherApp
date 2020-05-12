@@ -8,7 +8,7 @@ const LATITUDE = 21.027763;
 const LONGITUDE = 105.834160;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
+import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtonsFooter";
 class Weather extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +64,7 @@ class Weather extends Component {
           <Text style={styles.text}>{ temperature } C</Text>
           <Text style={styles.text}>{ capitalize(description) }</Text>
         </View>
+        <MaterialIconTextButtonsFooter></MaterialIconTextButtonsFooter>
       </View>
     );
   }
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   map: {
-    flex: 3,
+    flex: 5,
     marginTop: 0,
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
@@ -95,10 +96,10 @@ const styles = StyleSheet.create({
   textWrapper: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 20
+    marginTop: 20,
   },
   text: {
-    fontSize: 25,
+    fontSize: 20,
     fontFamily: 'montserrat-regular'
   }
 });

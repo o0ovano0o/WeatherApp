@@ -14,6 +14,7 @@ import EntypoIcon from "react-native-vector-icons/Entypo";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtonsFooter";
+import { useIsDrawerOpen } from '@react-navigation/drawer';
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import _ from 'lodash';
@@ -155,9 +156,9 @@ const renderContent = (weatherData,weatherDatas,onPress) => (
                       </View>
 
                       <View style={styles.sunriseRow}>
-                        <Text style={styles.sunrise}>Sunrise</Text>
-                        <Text style={styles.wind}>Wind</Text>
-                        <Text style={styles.sunset}>Sunset</Text>
+                        <Text style={styles.sunrise}>Bình minh</Text>
+                        <Text style={styles.wind}>Gió</Text>
+                        <Text style={styles.sunset}>Hoàng hôn</Text>
                       </View>
 
                       <View style={styles.loremIpsum7Row}>
@@ -179,10 +180,18 @@ const renderContent = (weatherData,weatherDatas,onPress) => (
                     </View>
                     <Text style={styles.loremIpsum4}>{`${weatherDatas.daily[0].feels_like.day}`}</Text>
                 </View>
-                <FontAwesomeIcon
-                      name="align-left"
-                      style={styles.icon}
-                ></FontAwesomeIcon>
+                <TouchableOpacity style={{width: 31,
+                                          height: 30,
+                                          position: "absolute",
+                                          top: 10,
+                                          left: 20}}
+                              onPress={() => navigation.openDrawer()}
+                                          >
+                  <FontAwesomeIcon
+                        name="align-left"
+                        style={styles.icon}
+                  ></FontAwesomeIcon>
+                </TouchableOpacity>
                 <Dv onPress={()=> onPress()}/>
 
 
@@ -196,8 +205,8 @@ const renderContent = (weatherData,weatherDatas,onPress) => (
                 <Text style={styles.c17}>C</Text>
                 <Text style={styles.currentLocation}>{`${weatherData.name}`}</Text>
                 <Text style={styles.today12May19}>Hôm nay, {`${getDate('now')}`}</Text>
-                <Text style={styles.day13}>MAX</Text>
-                <Text style={styles.night}>MIN</Text>
+                <Text style={styles.day13}>Cao nhất</Text>
+                <Text style={styles.night}>Thấp nhất</Text>
                 <Text style={styles.loremIpsum}>{`${Math.ceil(weatherData.main.temp)}`}</Text>
                 <Text style={styles.sunnyWithClouds}>{`${weatherData.weather[0].description}`}</Text>
                 <Text style={styles.loremIpsum2}>{`${weatherDatas.daily[0].temp.max}`}</Text>
