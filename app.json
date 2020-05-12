@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "intrigueddsd",
+    "name": "Weather",
     "description": "No description",
     "slug": "snack-d6e68bfc-3ee8-443a-9df3-0fe79d7d49b9",
     "privacy": "unlisted",
@@ -8,9 +8,9 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
-    "icon": "https://d1wp6m56sqw74a.cloudfront.net/~assets/c9aa1be8a6a6fe81e20c3ac4106a2ebc",
+    "icon": "./app/assets/images/icon.png",
     "loading": {
-      "icon": "https://d1wp6m56sqw74a.cloudfront.net/~assets/c9aa1be8a6a6fe81e20c3ac4106a2ebc",
+      "icon": "./app/assets/images/icon.png",
       "hideExponentText": false
     },
     "packagerOpts": {
@@ -23,6 +23,9 @@
     },
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.PTUDDD.vanminh"
     }
   }
 }

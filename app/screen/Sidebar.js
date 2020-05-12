@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as weatherActions from '../actions';
 import { Actions } from 'react-native-router-flux';
-
+import Splash from './Splash';
 const gotoHome=()=>{
   Actions.home()
 }
@@ -81,12 +81,7 @@ class FlatListDemo extends Component {
     return (
       this.state.loading ?
         <View style={{ flex: 1, flexDirection: 'column',justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Loadding {this.state.search}...</Text>
-          {/* <Button onPress={
-            () => {
-              this.getData();
-            }
-          } title="Reload" /> */}
+          <Text style={{fontFamily:'montserrat-700',fontSize:22, fontWeight:'bold' }}>Loadding {this.state.search}...</Text>
         </View> :
         <FlatList
             ListHeaderComponent={this.renderHeader}

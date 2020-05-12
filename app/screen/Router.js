@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Scene } from 'react-native-router-flux'
 import { StyleSheet } from 'react-native'
-import {App, Main2, Tom, Today, Search, CurrentWeather} from './main.js'
+import {App, Main2, Tom, Today, Search, CurrentWeather, Maptemp} from './main.js'
 
 const Routes = () => (
    <Router  navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene} backButtonTextStyle = {{color:'#000000'}}

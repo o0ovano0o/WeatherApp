@@ -17,13 +17,15 @@ const Drawer = createDrawerNavigator();
 import MainScreen from './MainScreen';
 import Searchcity from './Sidebar';
 import Dv from './Dv';
-
+import MapView from './MapView';
+import Webview from './Webview';
 
 
 const logger = createLogger();
 const store = createStore(searchReducer, composeWithDevTools(
   applyMiddleware(thunk, promise, logger),
 ));
+
 
 class CurrentWeather extends Component {
   render() {
@@ -91,13 +93,15 @@ class App extends Component  {
           <NavigationContainer>
             <Drawer.Navigator initialRouteName="Home">
               <Drawer.Screen name="Thời tiết trong ngày" component={Main1} />
-              <Drawer.Screen name="Chi tiết" component={Today} />
+              <Drawer.Screen name="Chi tiết trong ngày" component={Today} />
               <Drawer.Screen name="Thời tiết 7 ngày tới" component={Main2} />
               <Drawer.Screen name="Thời tiết ngày mai" component={Tom} />
+              <Drawer.Screen name="Tìm kiếm theo bản đồ" component={MapView}/>
+              <Drawer.Screen name="Bản đồ thời tiết" component={Webview}/>
             </Drawer.Navigator>
           </NavigationContainer>
       );
     }
   }
 
-    export {App,Main2, Tom, Today, Search, CurrentWeather }
+    export {App,Main2, Tom, Today, Search, CurrentWeather, MapView }
