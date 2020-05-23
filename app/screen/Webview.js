@@ -14,7 +14,7 @@ export default class Webview extends Component {
         source={{
           uri: 'https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat=21.1665&lon=106.3257&zoom=4'
         }}
-        style={{ marginTop: -88 }}
+        style={{ marginTop: -70 }}
       />
       <MaterialIconTextButtonsFooter style={{bottom:0}}></MaterialIconTextButtonsFooter>
 </View>

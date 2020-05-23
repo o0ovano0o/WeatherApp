@@ -23,7 +23,7 @@ function MaterialIconTextButtonsFooter(props) {
           name="timer"
           style={styles.icon1}
         ></MaterialCommunityIconsIcon>
-        <Text style={styles.btn1Text}>{ "Ngài mai"}</Text>
+        <Text style={styles.btn1Text}>{ "Ngày mai"}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonWrapper1} onPress={gotoHome}>
         <Icon name="home" style={styles.icon}></Icon>
