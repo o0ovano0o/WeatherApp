@@ -180,18 +180,7 @@ const renderContent = (weatherData,weatherDatas,onPress) => (
                     </View>
                     <Text style={styles.loremIpsum4}>{`${weatherDatas.daily[0].feels_like.day}`}</Text>
                 </View>
-                <TouchableOpacity style={{width: 31,
-                                          height: 30,
-                                          position: "absolute",
-                                          top: 10,
-                                          left: 20}}
-                              onPress={() => navigation.openDrawer()}
-                                          >
-                  <FontAwesomeIcon
-                        name="align-left"
-                        style={styles.icon}
-                  ></FontAwesomeIcon>
-                </TouchableOpacity>
+
                 <Dv onPress={()=> onPress()}/>
 
 
