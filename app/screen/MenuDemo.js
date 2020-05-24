@@ -8,7 +8,7 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import {Main1, Main2, Tom, Today, Search, CurrentWeather, Maptemp} from './main.js'
+import {Main1, Main2, Tom, Today, Search, CurrentWeather, Maptemp, Airmapview} from './main.js'
 import MapView from './MapView';
 import Webview from './Webview';
 function Feed({ navigation }) {
@@ -76,7 +76,7 @@ function MyDrawer() {
       <Drawer.Screen name="Chi tiết trong ngày" component={Today} />
       <Drawer.Screen name="Thời tiết 7 ngày tới" component={Next7} />
       <Drawer.Screen name="Thời tiết ngày mai" component={Tomorrow} />
-      <Drawer.Screen name="Tìm kiếm theo bản đồ" component={Map}/>
+      <Drawer.Screen name="Bản đồ IQAir" component={Airmapview}/>
       <Drawer.Screen name="Bản đồ thời tiết" component={Web}/>
     </Drawer.Navigator>
   );

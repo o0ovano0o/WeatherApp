@@ -14,7 +14,7 @@ import Searchcity from './Sidebar';
 import Dv from './Dv';
 import MapView from './MapView';
 import Webview from './Webview';
-
+import Airmapview from './airvisualmap';
 
 const logger = createLogger();
 const store = createStore(searchReducer, composeWithDevTools(
@@ -83,4 +83,4 @@ class Main1 extends Component  {
 
 
 
-    export {Main1,Main2, Tom, Today, Search, CurrentWeather, MapView }
+    export {Main1,Main2, Tom, Today, Search, CurrentWeather, MapView, Airmapview }

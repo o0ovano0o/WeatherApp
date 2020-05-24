@@ -26,7 +26,7 @@ export default class Splash extends React.Component {
 
     return (
       <View style={styles.container}>
-          <Animated.Image style={{...styles.logo, opacity: this.state.logoOpacity}} source={require('../assets/images/icon.png')} />
+          <Image style={styles.logo} source={require('../assets/images/icon.png')} />
           <Animated.Text style={{...styles.title, marginTop: this.state.titlemargintop }}>Thời tiết</Animated.Text>
       </View>
     );
