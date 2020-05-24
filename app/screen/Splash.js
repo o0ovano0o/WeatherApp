@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#385999',
+    backgroundColor: 'white',
     alignItems:'center',
   },
  title:{
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
    fontWeight:'bold',
    fontSize: 30,
    fontFamily:'',
-   color:'white'
+   color:'black'
  },
   logo:{
     height: 100,

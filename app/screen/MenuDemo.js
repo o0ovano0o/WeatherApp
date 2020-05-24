@@ -14,27 +14,58 @@ import Webview from './Webview';
 function Feed({ navigation }) {
   return (
     <View style={{ flex: 1 }}>
-
       <Main1/>
-
-        <TouchableOpacity style={{width: 31,
-                                  height: 30,
-                                  position: "absolute",top:10, left:30
-                                }}
-                      onPress={() => navigation.openDrawer()}
-                                  >
-          <FontAwesomeIcon
-                name="align-left"
-                style={styles.icon}
-          ></FontAwesomeIcon>
+        <TouchableOpacity style={{width: 31,height: 30,position: "absolute",top:10, left:20}} onPress={() => navigation.openDrawer()}>
+          <FontAwesomeIcon name="align-left" style={styles.icon}></FontAwesomeIcon>
         </TouchableOpacity>
-
     </View>
   );
 }
 
+function Map({ navigation }) {
+  return (
+    <View style={{ flex: 1 }}>
+      <MapView/>
+        <TouchableOpacity style={{width: 31,height: 30,position: "absolute",top:10, left:20}} onPress={() => navigation.openDrawer()}>
+          <FontAwesomeIcon name="align-left" style={styles.icon1}></FontAwesomeIcon>
+        </TouchableOpacity>
+    </View>
+  );
+}
+function Web({ navigation }) {
+  return (
+    <View style={{ flex: 1 }}>
+      <Webview/>
+        <TouchableOpacity style={{width: 31,height: 30,position: "absolute",top:10, left:50}} onPress={() => navigation.openDrawer()}>
+          <FontAwesomeIcon name="align-left" style={styles.icon2}></FontAwesomeIcon>
+        </TouchableOpacity>
+    </View>
+  );
+}
 
+function Next7({ navigation }) {
+  return (
+    <View style={{ flex: 1 }}>
+      <Main2/>
+        <TouchableOpacity style={{width: 31,height: 30,position: "absolute",top:10, left:20}} onPress={() => navigation.openDrawer()}>
+          <FontAwesomeIcon name="align-left" style={styles.icon}></FontAwesomeIcon>
+        </TouchableOpacity>
+    </View>
+  );
+}
+function Tomorrow({ navigation }) {
+  return (
+    <View style={{ flex: 1,backgroundColor:'rgba(0,0,128,0.7)' }}>
+    <View style={{flex:1, top:40}}>
+      <Tom />
+      </View>
 
+        <TouchableOpacity style={{width: 31,height: 30,position: "absolute",top:10, left:20}} onPress={() => navigation.openDrawer()}>
+          <FontAwesomeIcon name="align-left" style={styles.icon}></FontAwesomeIcon>
+        </TouchableOpacity>
+    </View>
+  );
+}
 
 const Drawer = createDrawerNavigator();
 
@@ -43,20 +74,20 @@ function MyDrawer() {
     <Drawer.Navigator >
       <Drawer.Screen name="Thời tiết trong ngày" component={Feed} />
       <Drawer.Screen name="Chi tiết trong ngày" component={Today} />
-      <Drawer.Screen name="Thời tiết 7 ngày tới" component={Main2} />
-      <Drawer.Screen name="Thời tiết ngày mai" component={Tom} />
-      <Drawer.Screen name="Tìm kiếm theo bản đồ" component={MapView}/>
-      <Drawer.Screen name="Bản đồ thời tiết" component={Webview}/>
+      <Drawer.Screen name="Thời tiết 7 ngày tới" component={Next7} />
+      <Drawer.Screen name="Thời tiết ngày mai" component={Tomorrow} />
+      <Drawer.Screen name="Tìm kiếm theo bản đồ" component={Map}/>
+      <Drawer.Screen name="Bản đồ thời tiết" component={Web}/>
     </Drawer.Navigator>
   );
 }
  class App extends React.Component  {
     render(){
       return (
-    <NavigationContainer>
-      <MyDrawer />
-    </NavigationContainer>
-  );
+        <NavigationContainer>
+          <MyDrawer />
+        </NavigationContainer>
+      );
     }
   }
   const styles = StyleSheet.create({
@@ -69,6 +100,20 @@ function MyDrawer() {
     },
     icon: {
       color: "white",
+      fontSize: 20,
+      position: "absolute",
+      top: 0,
+      left: 0
+    },
+    icon1: {
+      color: "black",
+      fontSize: 20,
+      position: "absolute",
+      top: 0,
+      left: 0
+    },
+    icon2: {
+      color: "rgba(128,128,128,0.3)	",
       fontSize: 20,
       position: "absolute",
       top: 0,
