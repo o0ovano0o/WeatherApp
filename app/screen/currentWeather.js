@@ -135,7 +135,14 @@ const renderContent = (weatherData,weatherDatas,onPress) => (
   <View style={styles.container}>
 
      { (_.isEmpty(weatherData)||_.isEmpty(weatherDatas)) ?
-         <View style={{backgroundColor: '#385999',flex:1}}></View>
+         <View style={{ flex: 1,
+          justifyContent: 'center',
+          backgroundColor: 'white',
+          alignItems:'center',}}>
+           <Image style={{ height: 100,
+    width:100,
+    borderRadius:50}} source={require('../assets/images/icon.png')} />
+         </View>
           :
       <View>
           <View style={styles.rect7Stack}>

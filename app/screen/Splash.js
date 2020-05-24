@@ -26,7 +26,7 @@ export default class Splash extends React.Component {
 
     return (
       <View style={styles.container}>
-          <Animated.Image style={{...styles.logo, opacity: this.state.logoOpacity}} source={require('../assets/images/icon.png')} />
+          <Image style={styles.logo} source={require('../assets/images/icon.png')} />
           <Animated.Text style={{...styles.title, marginTop: this.state.titlemargintop }}>Thời tiết</Animated.Text>
       </View>
     );
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#385999',
+    backgroundColor: 'white',
     alignItems:'center',
   },
  title:{
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
    fontWeight:'bold',
    fontSize: 30,
    fontFamily:'',
-   color:'white'
+   color:'black'
  },
   logo:{
     height: 100,
