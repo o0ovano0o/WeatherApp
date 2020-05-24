@@ -19,7 +19,7 @@ import Searchcity from './Sidebar';
 import Dv from './Dv';
 import MapView from './MapView';
 import Webview from './Webview';
-
+import Airmapview from './airvisualmap';
 
 const logger = createLogger();
 const store = createStore(searchReducer, composeWithDevTools(
@@ -97,7 +97,7 @@ class App extends Component  {
               <Drawer.Screen name="Chi tiết trong ngày" component={Today} />
               <Drawer.Screen name="Thời tiết 7 ngày tới" component={Main2} />
               <Drawer.Screen name="Thời tiết ngày mai" component={Tom} />
-              <Drawer.Screen name="Tìm kiếm theo bản đồ" component={MapView}/>
+              <Drawer.Screen name="Bản đồ IQAir" component={Airmapview}/>
               <Drawer.Screen name="Bản đồ thời tiết" component={Webview}/>
             </Drawer.Navigator>
           </NavigationContainer>
