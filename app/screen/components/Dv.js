@@ -6,6 +6,8 @@ import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommun
 import * as weatherActions from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+// class màn hình định vị
 class Dv extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ class Dv extends Component {
       search: '',
     };
   }
+  // hàm lấy thông tin địa điểm hiện tại
   getLocation = ()=> {
     navigator.geolocation.getCurrentPosition( // eslint-disable-line
       async (position) => {

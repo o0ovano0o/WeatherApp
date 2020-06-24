@@ -11,6 +11,8 @@ import * as weatherActions from '../../actions';
 const gotoHome=()=>{
   Actions.home()
 }
+
+// menu slidebar
 class FlatListDemo extends Component {
 
   constructor(props) {

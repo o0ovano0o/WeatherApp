@@ -7,6 +7,8 @@ import {
 import { WebView } from 'react-native-webview';
 import MaterialIconTextButtonsFooter from "../../components/MaterialIconTextButtonsFooter";
 const myrule='document.getElementsByClassName("z500 top-left-block")[0].style.visibility="hidden";';
+// hiển thị bản đồ ô nhiễm ko khí
+// nguồn IQAIR
 export default class Webview extends Component {
   render() {
     return (

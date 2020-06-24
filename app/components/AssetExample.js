@@ -8,7 +8,7 @@ import EntypoIcon from "react-native-vector-icons/Entypo";
 const gotoDia = () => {
   Actions.dia()
 }
-
+// nút mở lên thông tin chi tiết của thời tiết trong ngày
 function AssetExample(props) {
   return (
 

@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import * as weatherActions from '../../actions/index';
 import MaterialIconTextButtonsFooter from "../../components/MaterialIconTextButtonsFooter";
 
-
+// component biểu đồ đường thẳng
 class Line extends Component {
   render() {
     const { data, time } = this.props;
@@ -47,6 +47,8 @@ class Line extends Component {
     );
   }
 }
+
+// cài đặt biểu đồ
 const chartConfig3 = {
   backgroundGradientFrom: "white",
   backgroundGradientFromOpacity: 0,
@@ -62,12 +64,16 @@ const chartConfig3 = {
     stroke: "#ffa726"
   }
 }
+
+// lấy giờ từ unix time stamp
 const getTime = data => {
   var date = new Date(data * 1000);
   var hours = date.getHours();
   var strTime = hours;
   return strTime;
 };
+
+// check ngày từ unix time stamp có phải ngày hôm nay không ? lấy thời gian chẵn
 const getDay = data => {
   var date = new Date(data * 1000);
   var day = date.getDate();
@@ -76,6 +82,8 @@ const getDay = data => {
   var hour = date.getHours();
   return (day === now_day && hour % 2 === 0) ? true : false;
 };
+
+// check ngày từ unix time stamp có phải ngày hôm nay không ?
 const getFullDay = data => {
   var date = new Date(data * 1000);
   var day = date.getDate();
@@ -92,6 +100,7 @@ class App extends Component {
     const render = (list) => {
       return list.map((element, index) => <Text key={`${index}`}>{` ${getTime(element.dt)} `}  {element.temp.day}  {`${element.temp.min} `}</Text>);
     }
+// lọc các thông tin giờ nhiệt độ icon độ ẩm ...
     let h = hourly.filter(item => getDay(item.dt) === true);
     let hf = hourly.filter(item => getFullDay(item.dt) === true);
     const daytemp = hourly.filter(item => getFullDay(item.dt) === true).map(item => item.temp);
@@ -99,6 +108,7 @@ class App extends Component {
     const temp = h.map(item => item.temp);
     const time = h.map(item => getTime(item.dt));
     const hum =  hourly.filter(item => getFullDay(item.dt) === true).map(item => item.humidity);
+    // set icon theo dữ liệu từ API trả về
     const setIcon = (data) => {
       data= '01d';
       if (data == '01d') {
@@ -154,7 +164,7 @@ class App extends Component {
        return (  <IoniconsIcon name="md-snow" style={styles.icon7}></IoniconsIcon>)
       }
     }
-
+    // render ra nhiệt độ
     const rendertemp = ( data) => {
       return data.map((item,index) => (
         <View style={styles.rect9} key={`${index}`}>
@@ -167,6 +177,7 @@ class App extends Component {
             </View>
       ))
     }
+    // render ra độ ẩm
     const renderhum = (data) => {
       return data.map((item,index)=>(
         <View style={styles.rect911} key={`${index}`}>

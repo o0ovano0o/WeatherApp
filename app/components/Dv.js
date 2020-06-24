@@ -6,6 +6,7 @@ import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommun
 const gotoDv = () => {
   Actions.Dv();
 }
+// Nút định vị
 export default class Dv extends Component {
   constructor(props){
     super(props)
@@ -14,10 +15,11 @@ export default class Dv extends Component {
   return (
 
     <TouchableOpacity style={styles.container} onPress={()=>this.props.onPress()}>
-                <MaterialCommunityIconsIcon
-                  name="map-marker"
-                  style={styles.icon3}
-                /></TouchableOpacity>
+        <MaterialCommunityIconsIcon
+          name="map-marker"
+          style={styles.icon3}
+        />
+    </TouchableOpacity>
 
   );
   }

@@ -8,6 +8,8 @@ const LATITUDE = 21.027763;
 const LONGITUDE = 105.834160;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
+// Tìm kiếm thông tin thời tiết bằng bản đồ
 import MaterialIconTextButtonsFooter from "../../components/MaterialIconTextButtonsFooter";
 class Weather extends Component {
   constructor(props) {

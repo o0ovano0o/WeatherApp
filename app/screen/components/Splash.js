@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Text, View, StyleSheet, TextInput,TouchableOpacity,ScrollView,SafeAreaView,Image,Animated} from 'react-native';
 import Constants from 'expo-constants';
 
+// màn hình chờ chuyển giao khi load data
 export default class Splash extends React.Component {
 
   state={

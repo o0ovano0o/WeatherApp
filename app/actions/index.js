@@ -9,11 +9,9 @@ export const SET_IS_LOADING = 'SET_IS_LOADING';
 export const SET_IS_FAHRENHEIT = 'SET_IS_FAHRENHEIT';
 export const UPDATE_NEXT_5DAYS = 'UPDATE_NEXT_5DAYS';
 
-/**
- * updateSearchTerm - set new search term
- * @param  {string} searchTerm - what the user entered
- * @return {object} Action
- */
+
+
+// cập nhật update
 export function updateSearchTerm(searchTerm) {
     return {
         type: UPDATE_SEARCH_TERM,
@@ -21,11 +19,7 @@ export function updateSearchTerm(searchTerm) {
     };
 }
 
-/**
- *UPDATE_NEXT_5DAYS - set weather data
- * @param  {string} daysData - what the user entered
- * @return {object} Action
- */
+// cập nhập dữ liệu thời tiết 5 ngày
 export function update_5_days(weatherDatas) {
     return {
         type: UPDATE_NEXT_5DAYS,
@@ -33,11 +27,7 @@ export function update_5_days(weatherDatas) {
     };
 }
 
-/**
- * updateWeatherData - set data from API response
- * @param  {object} weatherData - response from API
- * @return {object} Action
- */
+// cập nhật dữ liệu thời tiết thời điểm hiện tại
 export function updateWeatherData(weatherData) {
     return {
         type: UPDATE_WEATHER_DATA,
@@ -45,11 +35,7 @@ export function updateWeatherData(weatherData) {
     };
 }
 
-/**
- * setErrorMessage - change or show error message
- * @param {object} errorMessage - message to display
- * @return {object} Action
- */
+// set lỗi
 export function setErrorMessage(errorMessage) {
     return {
         type: SET_ERROR_MESSAGE,
@@ -57,11 +43,7 @@ export function setErrorMessage(errorMessage) {
     };
 }
 
-/**
- * setIsLoading - show or hide loading spinner
- * @param {boolean} isLoading
- * @return {object} Action
- */
+// set loading
 export function setIsLoading(isLoading) {
     return {
         type: SET_IS_LOADING,
@@ -69,18 +51,7 @@ export function setIsLoading(isLoading) {
     };
 }
 
-/**
- * setIsFahrenheit - toggle between F and C temperatures
- * @param {Boolean} isFahrenheit
- * @return {object} Action
- */
-export function setIsFahrenheit(isFahrenheit) {
-    return {
-        type: SET_IS_FAHRENHEIT,
-        isFahrenheit,
-    };
-}
-
+// tìm kiếm thông tin nhiệt độ theo id thành phố
 export function searchByCity(searchTerm) {
     return (dispatch) => {
         const { appid, url } = config;
@@ -99,6 +70,7 @@ export function searchByCity(searchTerm) {
     };
 }
 
+// tìm kiếm thông tin nhiệt độ hiện tại theo tọa độ
 export function searchByCoordinates(latitude, longitude) {
     return (dispatch) => {
         const { appid, url } = config;
@@ -116,6 +88,8 @@ export function searchByCoordinates(latitude, longitude) {
             });
     };
 }
+
+// tìm kiếm thông tin nhiệt đọ 5 ngày tới theo tọa độ
 export function search5daysByCoordinates(latitude, longitude) {
     return (dispatch) => {
         const { appid, url } = config;

@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 const gotoDia = () => {
   Actions.Sidebar()
 }
-
+// nút tìm kiếm để mở ra màn hình tìm kiếm
 function AssetExample(props) {
   return (
 

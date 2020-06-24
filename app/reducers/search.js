@@ -6,7 +6,7 @@ import {
     SET_IS_FAHRENHEIT,
     UPDATE_NEXT_5DAYS
 } from '../actions';
-
+// các state
 const initialState = {
     city: '',
     weatherData: {},
@@ -16,6 +16,7 @@ const initialState = {
     weatherDatas: {},
 };
 
+//set giá trị state với các trạng thái - hành động
 const searchReducer = (state = initialState, action = {}) => {
     switch (action.type) {
         case UPDATE_SEARCH_TERM: {

@@ -3,7 +3,7 @@ const { appid, url } = config;
 const ROOT_URL = `http://api.openweathermap.org/data/2.5/weather?&lang=vi&units=metric&APPID=${appid}`;
 
 
-
+// API lấy thông tin nhiệt độ theo vị trí địa lý
 module.exports = (latitude, longitude) => {
   const url = `${ROOT_URL}&lat=${latitude}&lon=${longitude}`;
 

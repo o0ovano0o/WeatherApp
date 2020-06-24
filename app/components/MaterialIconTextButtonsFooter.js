@@ -15,6 +15,7 @@ const gotoHome=()=>{
   Actions.home()
 }
 
+//điều hướng bên dưới của màn hình
 function MaterialIconTextButtonsFooter(props) {
   return (
     <View style={[styles.container, props.style]}>
