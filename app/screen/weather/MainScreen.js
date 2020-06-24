@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-import * as weatherActions from '../actions';
+import * as weatherActions from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CurrentWeather from './currentWeather';
-import styles from '../assets/style';
+import styles from '../../assets/style';
 
 export class MainScreen extends Component {
   getLocation() {

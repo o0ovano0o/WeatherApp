@@ -1,7 +1,6 @@
 import {
   UPDATE_NEXT_5DAYS
 } from '../actions';
-import { createStore} from 'redux'
 const initialState = {
   weatherDatas: {},
   city:''

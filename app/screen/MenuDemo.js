@@ -9,8 +9,8 @@ import {
 } from '@react-navigation/drawer';
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import {Main1, Main2, Tom, Today, Search, CurrentWeather, Maptemp, Airmapview} from './main.js'
-import MapView from './MapView';
-import Webview from './Webview';
+import MapView from './Web-Map-view/MapView';
+import Webview from './Web-Map-view/Webview';
 function Feed({ navigation }) {
   return (
     <View style={{ flex: 1 }}>

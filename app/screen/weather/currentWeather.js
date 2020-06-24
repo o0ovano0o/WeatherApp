@@ -9,21 +9,17 @@ import {
   SafeAreaView,
   TouchableOpacity
 } from "react-native";
-import { Actions } from 'react-native-router-flux';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtonsFooter";
-import { useIsDrawerOpen } from '@react-navigation/drawer';
 import FeatherIcon from "react-native-vector-icons/Feather";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import _ from 'lodash';
-import styles from '../assets/style';
-import Splash from './Splash';
-import AssetExample from "../components/AssetExample";
-import SearchBar from "../components/Search_Bar";
-import Icon from 'react-native-vector-icons/Ionicons';
-import Dv from '../components/Dv';
+import styles from '../../assets/style';
+import Splash from '../components/Splash';
+import AssetExample from "../../components/AssetExample";
+import SearchBar from "../../components/Search_Bar";
+import MaterialIconTextButtonsFooter from "../../components/MaterialIconTextButtonsFooter";
+import Dv from '../../components/Dv';
 
 const getDate= data => {
   if(data=='now'){
@@ -53,7 +49,7 @@ const getbg = (data) =>{
   let imgbg={
     bgcolor:
           (<ImageBackground
-            source={require('../assets/images/hot-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+            source={require('../../assets/images/hot-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>),
     rect8cl:(<View style={[ styles.rect8bg1]}></View>),
     rect4cl:(<View style={[styles.rect4, styles.rect4bg1]}></View>),
@@ -65,14 +61,14 @@ const getbg = (data) =>{
     var minutes = "0" + date.getMinutes();
     if (hours>5&&hours<9){
       if(data>20){
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          imgbg.bgcolor=(<ImageBackground source={require('../../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgnice]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgnice]}></View>);
           imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgnice]}></View>);
         }
         else{
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/sad-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          imgbg.bgcolor=(<ImageBackground source={require('../../assets/images/sad-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgsad_AM]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgsad_AM]}></View>);
@@ -81,14 +77,14 @@ const getbg = (data) =>{
     }
     else if(hours>=22 || hours<3){
       if(data<5){
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/sad-ice.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          imgbg.bgcolor=(<ImageBackground source={require('../../assets/images/sad-ice.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgsad_AM]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgsad_AM]}></View>);
           imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgsad_AM]}></View>);
       }
       else{
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/night-tim-PM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          imgbg.bgcolor=(<ImageBackground source={require('../../assets/images/night-tim-PM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgnight_tim_PM]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgnight_tim_PM]}></View>);
@@ -97,21 +93,21 @@ const getbg = (data) =>{
     }
     else if(hours>=9&&hours<17){
       if(data>=20&&data<30){
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          imgbg.bgcolor=(<ImageBackground source={require('../../assets/images/nice-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgnice]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgnice]}></View>);
           imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgnice]}></View>);
       }
       else if(data<20){
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/sad-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          imgbg.bgcolor=(<ImageBackground source={require('../../assets/images/sad-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgsad_AM]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgsad_AM]}></View>);
           imgbg.rect2cl=(<View style={[styles.rect2bg,styles.rect2bgsad_AM]}></View>);
       }
       else{
-          imgbg.bgcolor=(<ImageBackground source={require('../assets/images/hot-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
+          imgbg.bgcolor=(<ImageBackground source={require('../../assets/images/hot-AM.png')} resizeMode="stretch" style={styles.image} imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bghot_AM]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bghot_AM]}></View>);
@@ -120,7 +116,7 @@ const getbg = (data) =>{
     }
     else{
           imgbg.bgcolor=(<ImageBackground
-            source={require('../assets/images/Night-PM.png')}resizeMode="stretch"style={styles.image}imageStyle={styles.image_imageStyle}>
+            source={require('../../assets/images/Night-PM.png')}resizeMode="stretch"style={styles.image}imageStyle={styles.image_imageStyle}>
           </ImageBackground>);
           imgbg.rect4cl=(<View style={[styles.rect4, styles.rect4bgNight_PM]}></View>);
           imgbg.rect8cl=(<View style={[styles.rect8, styles.rect8bgNight_PM]}></View>);
@@ -141,7 +137,7 @@ const renderContent = (weatherData,weatherDatas,onPress) => (
           alignItems:'center',}}>
            <Image style={{ height: 100,
     width:100,
-    borderRadius:50}} source={require('../assets/images/icon.png')} />
+    borderRadius:50}} source={require('../../assets/images/icon.png')} />
          </View>
           :
       <View>

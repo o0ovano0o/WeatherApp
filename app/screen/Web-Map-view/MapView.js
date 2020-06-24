@@ -1,14 +1,14 @@
 import React,{ Component } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import api from '../actions/api';
+import api from '../../actions/api';
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 21.027763;
 const LONGITUDE = 105.834160;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtonsFooter";
+import MaterialIconTextButtonsFooter from "../../components/MaterialIconTextButtonsFooter";
 class Weather extends Component {
   constructor(props) {
     super(props);

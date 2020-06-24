@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, Button} from "react-native";
 import { ListItem, SearchBar,List } from "react-native-elements";
-import file  from '../assets/citybig.json';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as weatherActions from '../actions';
 import { Actions } from 'react-native-router-flux';
 import Splash from './Splash';
+import file  from '../../assets/citybig.json';
+import * as weatherActions from '../../actions';
 const gotoHome=()=>{
   Actions.home()
 }

@@ -1,22 +1,16 @@
-
-import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtonsFooter";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import sty from '../assets/style';
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Dimensions, ScrollView,ImageBackground } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { Text, View, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import FeatherIcon from "react-native-vector-icons/Feather";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {
   LineChart,
 } from "react-native-chart-kit";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as weatherActions from '../actions';
-
-
+import * as weatherActions from '../../actions';
 
 class Line extends Component {
   render() {
@@ -76,14 +70,15 @@ const getDay = data => {
   var now = new Date();
   var now_day = now.getDate();
   var hour = date.getHours();
-  return (day === now_day && hour % 2 === 0) ? true : false;
+  return (((now_day===30 && now_day - day === 29) || (now_day===31 && now_day - day === 30) || day - now_day === 1) && hour % 2 === 0) ? true : false;
 };
 const getFullDay = data => {
   var date = new Date(data * 1000);
   var day = date.getDate();
   var now = new Date();
   var now_day = now.getDate();
-  return day === now_day ? true : false;
+  var hour = date.getHours();
+  return ((now_day - day >= 27 || day - now_day === 1)) ? true : false;
 };
 
 class App extends Component {
@@ -95,14 +90,13 @@ class App extends Component {
       return list.map((element, index) => <Text key={`${index}`}>{` ${getTime(element.dt)} `}  {element.temp.day}  {`${element.temp.min} `}</Text>);
     }
     let h = hourly.filter(item => getDay(item.dt) === true);
-    let hf = hourly.filter(item => getFullDay(item.dt) === true);
     const daytemp = hourly.filter(item => getFullDay(item.dt) === true).map(item => item.temp);
-    const icon = hourly.filter(item => getFullDay(item.dt) === true).map(item => item.weather[0].icon);
     const temp = h.map(item => item.temp);
     const time = h.map(item => getTime(item.dt));
+    const icon = hourly.filter(item => getFullDay(item.dt) === true).map(item => item.weather[0].icon);
     const hum =  hourly.filter(item => getFullDay(item.dt) === true).map(item => item.humidity);
     const setIcon = (data) => {
-      data= '01d';
+      data= data.slice(0,2) + 'd';
       if (data == '01d') {
         return (
           <FeatherIcon
@@ -156,76 +150,158 @@ class App extends Component {
        return (  <IoniconsIcon name="md-snow" style={styles.icon7}></IoniconsIcon>)
       }
     }
+    return (
+      <View style={styles.container}>
+        <View style={styles.iconRow}>
+          <FontAwesomeIcon
+            name="thermometer-2"
+            style={styles.icon}
+          ></FontAwesomeIcon>
+          <Text style={styles.nhiệtDộ}>{`Biểu đồ`}</Text>
+        </View>
 
-    const rendertemp = ( data) => {
-      return data.map((item,index) => (
-        <View style={styles.rect9} key={`${index}`}>
-              <Text style={styles.loremIpsum4}>{`${getTime(item.dt)}`} giờ</Text>
-              {setIcon(item.weather[0].icon)}
+        <View style={styles.rect}>
+          <Line data={temp} time={time} ></Line>
+        </View>
+
+        <View style={styles.icon4Row}>
+        <MaterialCommunityIconsIcon
+              name="oil-temperature"
+              style={styles.icon4}
+            ></MaterialCommunityIconsIcon>
+          <Text style={styles.loremIpsum12}>Nhiệt độ chi tiết</Text>
+        </View>
+
+        <View style={styles.rect8Row}>
+          <ScrollView horizontal={true}>
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum2}>0 giờ</Text>
+              {setIcon(icon[0])}
+              <View style={styles.loremIpsum3Row}>
+                <Text style={styles.loremIpsum3}>{`${daytemp[0]}`}</Text>
+                <Text style={styles.c9}>C</Text>
+              </View>
+            </View>
+
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum4}>3 giờ</Text>
+              {setIcon(icon[3])}
               <View style={styles.loremIpsum5Row}>
-                <Text style={styles.loremIpsum5}>{`${item.temp}`}</Text>
+                <Text style={styles.loremIpsum5}>{`${daytemp[3]}`}</Text>
                 <Text style={styles.c10}>C</Text>
               </View>
             </View>
-      ))
-    }
-    const renderhum = (data) => {
-      return data.map((item,index)=>(
-        <View style={styles.rect911} key={`${index}`}>
-                <Text style={styles.loremIpsum22}>{`${getTime(item.dt)}`} giờ</Text>
-                <Text style={styles.loremIpsum23}>{`${item.humidity}%`}</Text>
-        </View>
-      ))
-    }
-    return (
-      <View>
-          <View style={{ padding:0,marginBottom:35}}>
-            <ScrollView >
-              <View style={styles.container}>
-                <View style={styles.iconRow}>
-                  <FontAwesomeIcon
-                    name="thermometer-2"
-                    style={styles.icon}
-                  ></FontAwesomeIcon>
-                  <Text style={styles.nhiệtDộ}>{`Biểu đồ`}</Text>
-                </View>
 
-                <View style={styles.rect}>
-                  <Line data={daytemp} time={time} ></Line>
-                </View>
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum4}>6 giờ</Text>
+              {setIcon(icon[6])}
+              <View style={styles.loremIpsum5Row}>
+                <Text style={styles.loremIpsum5}>{`${daytemp[6]}`}</Text>
+                <Text style={styles.c10}>C</Text>
+              </View>
+            </View>
 
-                <View style={styles.icon4Row}>
-                <MaterialCommunityIconsIcon
-                      name="oil-temperature"
-                      style={styles.icon4}
-                    ></MaterialCommunityIconsIcon>
-                  <Text style={styles.loremIpsum12}>Nhiệt độ chi tiết</Text>
-                </View>
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum4}>9 giờ</Text>
+              {setIcon(icon[9])}
+              <View style={styles.loremIpsum5Row}>
+                <Text style={styles.loremIpsum5}>{`${daytemp[9]}`}</Text>
+                <Text style={styles.c10}>C</Text>
+              </View>
+            </View>
 
-                <View style={styles.rect8Row}>
-                  <ScrollView horizontal={true}>
-                    {rendertemp(hf)}
-                  </ScrollView>
-                </View>
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum4}>12 giờ</Text>
+              {setIcon(icon[12])}
+              <View style={styles.loremIpsum5Row}>
+                <Text style={styles.loremIpsum5}>{`${daytemp[12]}`}</Text>
+                <Text style={styles.c10}>C</Text>
+              </View>
+            </View>
 
-                <View style={styles.rect6}>
-                  <View style={styles.icon5Row}>
-                    <EntypoIcon name="drop" style={styles.icon4}></EntypoIcon>
-                    <Text style={styles.loremIpsum}>Độ ẩm</Text>
-                  </View>
-                  <View style={styles.rect7}>
-                    <ScrollView horizontal={true} >
-                      {renderhum(hf)}
-                    </ScrollView>
-                  </View>
-                </View>
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum4}>15 giờ</Text>
+              {setIcon(icon[15])}
+              <View style={styles.loremIpsum5Row}>
+                <Text style={styles.loremIpsum5}>{`${daytemp[15]}`}</Text>
+                <Text style={styles.c10}>C</Text>
+              </View>
+            </View>
+
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum4}>18 giờ</Text>
+              {setIcon(icon[18])}
+              <View style={styles.loremIpsum5Row}>
+                <Text style={styles.loremIpsum5}>{`${daytemp[18]}`}</Text>
+                <Text style={styles.c10}>C</Text>
+              </View>
+            </View>
+
+            <View style={styles.rect9}>
+              <Text style={styles.loremIpsum4}>21 giờ</Text>
+              {setIcon(icon[21])}
+              <View style={styles.loremIpsum5Row}>
+                <Text style={styles.loremIpsum5}>{`${daytemp[21]}`}</Text>
+                <Text style={styles.c10}>C</Text>
+              </View>
             </View>
           </ScrollView>
+        </View>
+
+
+
+
+        <View style={styles.rect6}>
+          <View style={styles.icon5Row}>
+          <EntypoIcon name="drop" style={styles.icon4}></EntypoIcon>
+            <Text style={styles.loremIpsum}>Độ ẩm</Text>
+          </View>
+          <View style={styles.rect7}>
+            <ScrollView horizontal={true} >
+            <View style={styles.rect911}>
+                <Text style={styles.loremIpsum20}>0 giờ</Text>
+                <Text style={styles.loremIpsum21}>{`${hum[0]}%`}</Text>
+              </View>
+
+              <View style={styles.rect911}>
+                <Text style={styles.loremIpsum22}>3 giờ</Text>
+                <Text style={styles.loremIpsum23}>{`${hum[3]}%`}</Text>
+              </View>
+
+              <View style={styles.rect911}>
+                <Text style={styles.loremIpsum22}>6 giờ</Text>
+                <Text style={styles.loremIpsum23}>{`${hum[6]}%`}</Text>
+              </View>
+
+              <View style={styles.rect911}>
+                <Text style={styles.loremIpsum22}>9 giờ</Text>
+                <Text style={styles.loremIpsum23}>{`${hum[9]}%`}</Text>
+              </View>
+
+              <View style={styles.rect911}>
+                <Text style={styles.loremIpsum22}>12 giờ</Text>
+                <Text style={styles.loremIpsum23}>{`${hum[12]}%`}</Text>
+              </View>
+
+              <View style={styles.rect911}>
+                <Text style={styles.loremIpsum22}>15 giờ</Text>
+                <Text style={styles.loremIpsum23}>{`${hum[15]}%`}</Text>
+              </View>
+
+              <View style={styles.rect911}>
+                <Text style={styles.loremIpsum22}>18 giờ</Text>
+                <Text style={styles.loremIpsum23}>{`${hum[18]}%`}</Text>
+              </View>
+
+              <View style={styles.rect911}>
+                <Text style={styles.loremIpsum22}>21 giờ</Text>
+                <Text style={styles.loremIpsum23}>{`${hum[21]}%`}</Text>
+              </View>
+
+            </ScrollView>
+          </View>
+        </View>
       </View>
-      <MaterialIconTextButtonsFooter
-        style={styles.materialIconTextButtonsFooter1111}
-      ></MaterialIconTextButtonsFooter>
-    </View>
     );
   }
 
@@ -239,16 +315,8 @@ export default connect(state => ({
 )(App);
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
  backgroundColor: "rgba(255,255,255,1)",
- borderRadius:35,
- width:Dimensions.get("window").width,
-  },
-  materialIconTextButtonsFooter1111: {
-    bottom:0,
-    left: 0,
-    width: 360,
-    height: 60,
-    position: "absolute"
   },
   icon: {
     color: "rgba(17,16,16,1)",
@@ -259,6 +327,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: "montserrat-700",
     marginLeft: 7,
+    marginTop: 3
   },
   iconRow: {
     height: 22,
@@ -467,11 +536,5 @@ const styles = StyleSheet.create({
     marginTop: 21,
     marginLeft: 10,
     marginRight: 9
-  },
-  container1: {
-    backgroundColor: 'white',
-    borderRadius:30,
-    top:20,
-    height:Dimensions.get("window").height - 90
-  },
+  }
 });

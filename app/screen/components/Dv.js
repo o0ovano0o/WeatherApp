@@ -3,7 +3,7 @@ import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { Actions } from 'react-native-router-flux';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import * as weatherActions from '../actions';
+import * as weatherActions from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 class Dv extends Component {

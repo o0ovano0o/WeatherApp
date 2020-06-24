@@ -3,16 +3,12 @@ import { Text, StyleSheet, TouchableOpacity, ScrollView, Dimensions, Image } fro
 import { Actions } from 'react-native-router-flux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as weatherActions from '../actions';
-import {
-  LineChart,
-} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 import { Container, Tab, Tabs, TabHeading, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon, Button } from 'native-base';
-
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FeatherIcon from "react-native-vector-icons/Feather";
-
+import * as weatherActions from '../../actions/index';
 
 
 const getTime = data => {
@@ -106,31 +102,31 @@ class next5days extends Component {
     let icon;
     const setIcon= (data) =>{
       if(data=='01d'){
-        dt = `../assets/images/01d.png`;
+        dt = `../../assets/images/01d.png`;
       }
       if(data=='02d'){
-        icon = require(`../assets/images/02d.png`);
+        icon = require(`../../assets/images/02d.png`);
       }
       if(data=='03d'){
-        icon = require(`../assets/images/03d.png`);
+        icon = require(`../../assets/images/03d.png`);
       }
       if(data=='04d'){
-        icon = require(`../assets/images/04d.png`);
+        icon = require(`../../assets/images/04d.png`);
       }
       if(data=='09d'){
-        icon = require(`../assets/images/09d.png`);
+        icon = require(`../../assets/images/09d.png`);
       }
       if(data=='10d'){
-        icon = require(`../assets/images/10d.png`);
+        icon = require(`../../assets/images/10d.png`);
       }
       if(data=='11d'){
-        icon = require(`../assets/images/11d.png`);
+        icon = require(`../../assets/images/11d.png`);
       }
       if(data=='13d'){
-        icon = require(`../assets/images/13d.png`);
+        icon = require(`../../assets/images/13d.png`);
       }
       if(data=='50d'){
-        icon = require(`../assets/images/50d.png`);
+        icon = require(`../../assets/images/50d.png`);
       }
     }
     return (

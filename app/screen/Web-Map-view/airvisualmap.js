@@ -5,16 +5,18 @@ import {
 
 } from "react-native";
 import { WebView } from 'react-native-webview';
-import MaterialIconTextButtonsFooter from "../components/MaterialIconTextButtonsFooter";
+import MaterialIconTextButtonsFooter from "../../components/MaterialIconTextButtonsFooter";
+const myrule='document.getElementsByClassName("z500 top-left-block")[0].style.visibility="hidden";';
 export default class Webview extends Component {
   render() {
     return (
 <View style={{flex:1}}>
       <WebView
         source={{
-          uri: 'https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat=21.1665&lon=106.3257&zoom=4'
+          uri: 'https://www.iqair.com/air-quality-map'
         }}
-        style={{ marginTop: -65 }}
+        javaScriptEnabled
+      injectedJavaScript={'function injectRules() {' + myrule + '};injectRules();'}
       />
       <MaterialIconTextButtonsFooter style={{bottom:0}}></MaterialIconTextButtonsFooter>
 </View>

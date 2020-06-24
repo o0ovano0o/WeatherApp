@@ -6,15 +6,15 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import searchReducer from '../reducers/search';
-import Tomorrow from './Tomorrow.js';
-import Next5 from './next5days.js';
-import Dia from './Dia.js';
-import MainScreen from './MainScreen';
-import Searchcity from './Sidebar';
-import Dv from './Dv';
-import MapView from './MapView';
-import Webview from './Webview';
-import Airmapview from './airvisualmap';
+import Tomorrow from './weather/Tomorrow.js';
+import Next5 from './weather/next5days.js';
+import Dia from './weather/Dia.js';
+import MainScreen from './weather/MainScreen';
+import Searchcity from './components/Sidebar';
+import Dv from './components/Dv';
+import MapView from './Web-Map-view/MapView';
+import Webview from './Web-Map-view/Webview';
+import Airmapview from './Web-Map-view/airvisualmap';
 
 const logger = createLogger();
 const store = createStore(searchReducer, composeWithDevTools(
